@@ -10,6 +10,11 @@ public class GG : MonoBehaviour
     private bool isGrounded = false;
     private Rigidbody2D rb;
     private Vector3 originalScale;
+
+    public Animator animator;
+    public float speed1 = 5f;
+
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +28,10 @@ public class GG : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+        }
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            animator.SetFloat("Walk GG", Mathf.Abs(horizontalInput));
         }
     }
 

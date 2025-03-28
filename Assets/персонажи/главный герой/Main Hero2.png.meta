@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 49e4020579e034d0eac22a1354ac374c
+guid: 321134db29b38465096d0a1dded678a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6443129757427386264
-    second: MAIN HERO + IDLE 2_0
+      213: -3598276538771141207
+    second: Main Hero2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAIN HERO + IDLE 2_0
+      name: Main Hero2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 868bace6f976596a0800000000000000
-      internalID: -6443129757427386264
+      spriteID: 9ad8cee6d8a501ec0800000000000000
+      internalID: -3598276538771141207
       vertices: []
       indices: 
       edges: []

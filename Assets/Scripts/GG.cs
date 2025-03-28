@@ -6,67 +6,79 @@ public class GG : MonoBehaviour
 {
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
-    public float decelerationRate = 10f; // Скорость замедления
+    public float decelerationRate = 10f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private bool isGrounded = false;
     private Rigidbody2D rb;
     private Vector3 originalScale;
 
-    public Animator animator;
-    public float speed1 = 5f;
+    private Animator animator;
 
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // Прыжок с проверкой на земле
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
-        {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            animator.SetFloat("Walk GG", Mathf.Abs(horizontalInput));
-        }
+        
+
+
     }
 
     [System.Obsolete]
     void FixedUpdate()
     {
-        // Получаем ввод по горизонтали
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        // Устанавливаем скорость напрямую
-        Vector2 velocity = rb.velocity;
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        Vector2 velocity = rb.linearVelocity;
         velocity.x = horizontalInput * speed;
-        rb.velocity = velocity;
+        rb.linearVelocity = velocity;
 
-        // Если нет ввода, замедляемся
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (Mathf.Abs(horizontalInput) < 0.01f)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, decelerationRate * Time.fixedDeltaTime);
-            rb.velocity = velocity;
+            rb.linearVelocity = velocity;
         }
 
-        // Поворот персонажа
-        if (horizontalInput < 0) // Движение вправо
+        
+       
+            
+        
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            if (horizontalInput < 0) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            {
+                transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            }
+            else if (horizontalInput > 0) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            }
+
+            animator.SetInteger("State", 1);
         }
-        else if (horizontalInput > 0) // Движение влево
+        else
         {
-            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            animator.SetInteger("State", 0);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Проверяем коллизию с землей
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -75,7 +87,7 @@ public class GG : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        // Сбрасываем статус при выходе из коллизии
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

@@ -74,7 +74,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 40aa257d9e5a5f34fb91407958791073, type: 2}
-  m_Tag: 
+  m_Tag: Legasy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

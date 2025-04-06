@@ -21,18 +21,6 @@ public class GG : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        // ������ � ��������� �� �����
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
-        }
-        
-
-
-    }
 
     [System.Obsolete]
     void FixedUpdate()
@@ -51,11 +39,16 @@ public class GG : MonoBehaviour
             velocity.x = Mathf.MoveTowards(velocity.x, 0, decelerationRate * Time.fixedDeltaTime);
             rb.linearVelocity = velocity;
         }
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
 
-        
-       
-            
-        
+
+
+
+
         if (Input.GetAxis("Horizontal") != 0)
         {
             if (horizontalInput < 0) // �������� ������

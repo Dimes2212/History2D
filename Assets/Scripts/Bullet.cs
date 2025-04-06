@@ -9,6 +9,10 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
 
+
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,6 +46,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // ���������� ���� ����� ��������� ����� ��� ��� ������ �� ������� ������
-        Destroy(gameObject, 5f); // ����������� ����� 5 ������
+        Destroy(gameObject, 2f); // ����������� ����� 5 ������
     }
 }

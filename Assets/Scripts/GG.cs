@@ -11,6 +11,7 @@ public class GG : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 originalScale;
 
+
     private Animator animator;
 
 
@@ -86,5 +87,6 @@ public class GG : MonoBehaviour
             isGrounded = false;
         }
     }
+
 }
 

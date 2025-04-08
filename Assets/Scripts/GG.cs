@@ -31,21 +31,22 @@ public class GG : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
-        // �������� ���� �� �����������
-        float horizontalInput = Input.GetAxis("Horizontal");
 
-        // ������������� �������� ��������
-        Vector2 velocity = rb.linearVelocity;
+        /*float horizontalInput = Input.GetAxis("Horizontal");
+        Vector3 velocity = rb.linearVelocity;
         velocity.x = horizontalInput * speed;
         rb.linearVelocity = velocity;
 
-        // ���� ��� �����, �����������
         if (Mathf.Abs(horizontalInput) < 0.01f)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, decelerationRate * Time.fixedDeltaTime);
             rb.linearVelocity = velocity;
-        }
-        
+        }*/
+        // Получить горизонтальный ввод (клавиши A/D или стрелки влево/вправо)
+        float moveX = Input.GetAxis("Horizontal");
+
+        // Переместить объект только по оси X
+        transform.position += new Vector3(moveX, 0, 0) * speed * Time.deltaTime;
 
 
 
@@ -53,11 +54,11 @@ public class GG : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0)
         {
-            if (horizontalInput < 0) // �������� ������
+            if (Input.GetAxis("Horizontal") < 0) 
             {
                 transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
             }
-            else if (horizontalInput > 0) // �������� �����
+            else if (Input.GetAxis("Horizontal") > 0) 
             {
                 transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
             }
@@ -73,7 +74,7 @@ public class GG : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // ��������� �������� � ������
+        
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -82,7 +83,6 @@ public class GG : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        // ���������� ������ ��� ������ �� ��������
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

@@ -225,7 +225,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      poster_event_2233931_0: -8641768646273946823
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

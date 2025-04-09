@@ -2,50 +2,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-  
+    public float speed = 10f;
+    public float lifetime = 3f;
 
+    private int direction = 1;
 
-    public float speed;
-    private Rigidbody2D rb;
-    private Vector2 direction;
-
-
-
-
+    public void SetDirection(int dir)
+    {
+        direction = dir;
+        // Отражение пули, если нужно
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction;
+        transform.localScale = scale;
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        // direction = transform.right; // ����������� ������ �� ���������
-
-        // rb.velocity = direction * speed;
-
-        // �������� ����������� �������� �� ������� �������, �������� �� ������� ������
-        GameObject player = GameObject.FindGameObjectWithTag("Player"); // ��� ������ �������� ������� ������
-
-        if (player != null)
-        {
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-            if (playerMovement != null)
-            {
-                direction = playerMovement.GetLastMovementDirection(); // �������� ����������� �� ������� ������
-            }
-            else
-            {
-                Debug.LogError("PlayerMovement script not found on the player!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Player not found.  Make sure the player has the 'Player' tag.");
-            direction = Vector2.right;
-        }
-        rb.linearVelocity = direction * speed; // ��������� ��������
+        // Уничтожить пулю через lifetime секунд
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
     {
-        // ���������� ���� ����� ��������� ����� ��� ��� ������ �� ������� ������
-        Destroy(gameObject, 2f); // ����������� ����� 5 ������
+        // Движение по прямой (горизонтально)
+        transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
     }
 }

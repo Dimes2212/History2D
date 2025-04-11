@@ -27,7 +27,7 @@ public class BulletCollision : MonoBehaviour
         collisionCounts[target]++;
 
         // Проверить, достигло ли количество столкновений порогового значения
-        if (collisionCounts[target] >= collisionThreshold)
+        if (collisionCounts[target] >= collisionThreshold && target.CompareTag("Enemy"))
         {
             // Уничтожить объект и удалить его из словаря
             Destroy(target);

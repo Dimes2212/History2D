@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 321134db29b38465096d0a1dded678a2
+guid: ef5a7901bac3ffc48b1829984e526edb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3598276538771141207
-    second: Main Hero2_0
+      213: -29314994655810216
+    second: Wife_0
+  - first:
+      213: -7604697500733736449
+    second: Wife_1
+  - first:
+      213: -2471753433901101289
+    second: Wife_2
+  - first:
+      213: -6211153228690342083
+    second: Wife_3
+  - first:
+      213: 103768446328640837
+    second: Wife_4
+  - first:
+      213: 8940119131152050701
+    second: Wife_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,6 +87,32 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -85,19 +126,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -178,23 +206,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main Hero2_0
+      name: Wife_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ad8cee6d8a501ec0800000000000000
-      internalID: -3598276538771141207
+      spriteID: 85da2fcea2ad79ff0800000000000000
+      internalID: -29314994655810216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wife_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9f67c1aefa67690800000000000000
+      internalID: -7604697500733736449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wife_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f09f7095192bdd0800000000000000
+      internalID: -2471753433901101289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wife_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f346eeb0d8dc9a0800000000000000
+      internalID: -6211153228690342083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wife_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54510562ad8a07100800000000000000
+      internalID: 103768446328640837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wife_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0aedf5abfea11c70800000000000000
+      internalID: 8940119131152050701
       vertices: []
       indices: 
       edges: []
@@ -203,7 +341,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 586168cd183d3f6449fd531c039bc73f
     internalID: 0
     vertices: []
     indices: 
@@ -213,7 +351,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Main Hero2_0: -3598276538771141207
+      Wife_0: -29314994655810216
+      Wife_1: -7604697500733736449
+      Wife_2: -2471753433901101289
+      Wife_3: -6211153228690342083
+      Wife_4: 103768446328640837
+      Wife_5: 8940119131152050701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

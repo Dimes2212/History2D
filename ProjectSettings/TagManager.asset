@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Ladder
   - Enemy
+  - Letter
   layers:
   - Default
   - TransparentFX

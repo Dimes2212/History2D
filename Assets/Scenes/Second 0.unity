@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 1615242815}
-  typingSpeed: 0.1
+  typingSpeed: 0.07
   nextButton: {fileID: 866218092}
 --- !u!4 &101480796
 Transform:

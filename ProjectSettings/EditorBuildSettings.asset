@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Second 0.unity
     guid: 8ecc2ed7dad83ae4aad59e8be1a70aa9
   - enabled: 1
-    path: Assets/Scenes/Death after 1.unity
-    guid: 51e3184a65fe63b4ca47afc619e98387
+    path: Assets/Scenes/1 1.unity
+    guid: d44e5639f564c354db4aae57bbc56ce8
   - enabled: 1
     path: Assets/Scenes/Second.unity
     guid: b46dc67ba85db054b9acf16f86308ddf

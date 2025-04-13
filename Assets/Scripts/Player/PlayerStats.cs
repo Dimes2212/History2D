@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    
     public int maxHealth = 100;      // Максимальное здоровье
     public int currentHealth;        // Текущее здоровье
 

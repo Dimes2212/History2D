@@ -1,41 +1,101 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-public class ShowTextWhileInTrigger : MonoBehaviour
+public class InteractiveHintAndImageWithChildren : MonoBehaviour
 {
-    [Header("Настройки")]
-    public string playerTag = "Player"; // Тег объекта игрока
-    public bool hideOnExit = true; // Скрывать текст при выходе из триггера
+    [Header("Player Settings")]
+    public string playerTag = "Player";
+    public KeyCode interactKey = KeyCode.E;
 
-    [Header("Текст (TextMeshPro)")]
-    public TMP_Text displayText; // Компонент TextMeshPro
-    public string message = "Текст подсказки"; // Отображаемый текст
+    [Header("Hint (TextMeshPro)")]
+    public TMP_Text hintText;
+    public string hintMessage = "Press E";
+    public TMP_FontAsset customFont;
+
+    [Header("Image Settings")]
+    public Image displayImage;
+    public bool hideOnExit = true;
+    public bool includeChildren = true; // РџРѕРєР°Р·С‹РІР°С‚СЊ РґРѕС‡РµСЂРЅРёРµ РѕР±СЉРµРєС‚С‹
+
+    private bool isInTrigger = false;
+    private bool isImageVisible = false;
+
+    void Start()
+    {
+        ApplyCustomFont();
+        SetImageVisibility(false); // РЎРєСЂС‹РІР°РµРј РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРё СЃС‚Р°СЂС‚Рµ
+    }
+
+    void Update()
+    {
+        UpdateHintVisibility();
+        
+        if (isInTrigger && Input.GetKeyDown(interactKey))
+        {
+            ToggleImageVisibility();
+        }
+    }
+
+    private void ApplyCustomFont()
+    {
+        if (customFont != null && hintText != null)
+        {
+            hintText.font = customFont;
+        }
+    }
+
+    private void UpdateHintVisibility()
+    {
+        if (hintText != null)
+        {
+            hintText.gameObject.SetActive(isInTrigger && !isImageVisible);
+            hintText.text = hintMessage;
+        }
+    }
+
+    private void ToggleImageVisibility()
+    {
+        isImageVisible = !isImageVisible;
+        SetImageVisibility(isImageVisible);
+    }
+
+    private void SetImageVisibility(bool visible)
+    {
+        if (displayImage != null)
+        {
+            displayImage.gameObject.SetActive(visible);
+            
+            // РџРѕРєР°Р·С‹РІР°РµРј/СЃРєСЂС‹РІР°РµРј РґРѕС‡РµСЂРЅРёРµ РѕР±СЉРµРєС‚С‹
+            if (includeChildren)
+            {
+                foreach (Transform child in displayImage.transform)
+                {
+                    child.gameObject.SetActive(visible);
+                }
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(playerTag))
         {
-            // Показываем текст при входе
-            displayText.text = message;
-            displayText.gameObject.SetActive(true);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag(playerTag))
-        {
-            // Можно добавить дополнительные проверки/действия
-            // пока игрок находится в триггере
+            isInTrigger = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && hideOnExit)
+        if (other.CompareTag(playerTag))
         {
-            // Скрываем текст при выходе
-            displayText.gameObject.SetActive(false);
+            isInTrigger = false;
+            isImageVisible = false;
+            
+            if (hideOnExit)
+            {
+                SetImageVisibility(false);
+            }
         }
     }
 }

@@ -10,10 +10,12 @@ public class PlayerShooting : MonoBehaviour
 
     private float shootTimer = 0f;
     private Animator animator;
+    private PlayerStats stats;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        stats = GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -23,23 +25,33 @@ public class PlayerShooting : MonoBehaviour
         // Стрельба по нажатию клавиши F
         if (Input.GetKeyDown(KeyCode.F) && shootTimer >= shootCooldown)
         {
-            Shoot();
-            shootTimer = 0f;
+            // Стреляем только если есть патроны
+            if (stats != null && stats.UseAmmo())
+            {
+                Shoot();
+                shootTimer = 0f;
+            }
+            else
+            {
+                Debug.Log("Нет патронов!");
+            }
         }
     }
 
     void Shoot()
     {
         // Воспроизведение анимации стрельбы
-        animator.SetTrigger("Shoot");
+        if (animator != null)
+            animator.SetTrigger("Shoot");
 
         // Создание пули
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        // Определение направления (1 — вправо, -1 — влево)
+        // Направление пули: вправо или влево
         int direction = transform.localScale.x > 0 ? 1 : -1;
 
-        // Установить направление пули
-        bullet.GetComponent<Bullet>().SetDirection(direction);
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+            bulletScript.SetDirection(direction);
     }
 }

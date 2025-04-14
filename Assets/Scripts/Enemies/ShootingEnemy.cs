@@ -7,15 +7,18 @@ public class ShootingEnemy : MonoBehaviour
     [SerializeField] private Vector2 detectionAreaSize = new Vector2(8f, 4f);
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform firePoint; // Точка, где появляется пуля
 
     [Header("Detection Settings")]
     [SerializeField] private LayerMask obstacleLayer;
 
-    [Header("Audio")] // 🎵 Новый блок
+    [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
-    [SerializeField] private float shootSoundVolume = 1f; // Уровень громкости звука выстрела
+    [SerializeField] private float shootSoundVolume = 1f;
+
+    [Header("Projectile Settings")]
+    [SerializeField] private float projectileSpeed = 10f;
 
     private Transform player;
     private EnemyControl enemyControl;
@@ -50,18 +53,16 @@ public class ShootingEnemy : MonoBehaviour
 
     bool IsPlayerInCombatArea()
     {
-        Vector2 playerPosition = player.position;
-        Vector2 enemyPosition = transform.position;
-
-        return Mathf.Abs(playerPosition.x - enemyPosition.x) <= detectionAreaSize.x / 2 &&
-               Mathf.Abs(playerPosition.y - enemyPosition.y) <= detectionAreaSize.y / 2;
+        Vector2 playerPos = player.position;
+        Vector2 enemyPos = transform.position;
+        return Mathf.Abs(playerPos.x - enemyPos.x) <= detectionAreaSize.x / 2 &&
+               Mathf.Abs(playerPos.y - enemyPos.y) <= detectionAreaSize.y / 2;
     }
 
     void HandleCombat()
     {
         enemyControl.StopPatrol();
         FacePlayer();
-
         if (Time.time >= nextFireTime && HasLineOfSight())
         {
             Shoot();
@@ -69,11 +70,11 @@ public class ShootingEnemy : MonoBehaviour
         }
     }
 
+    // Переворачиваем врага в сторону игрока, чтобы визуально он смотрел в нужную сторону
     void FacePlayer()
     {
-        float xDirection = player.position.x - transform.position.x;
-        bool shouldFaceRight = xDirection > 0;
-
+        float xDiff = player.position.x - transform.position.x;
+        bool shouldFaceRight = xDiff > 0;
         if (shouldFaceRight != enemyControl.IsFacingRight)
         {
             enemyControl.Flip();
@@ -84,21 +85,34 @@ public class ShootingEnemy : MonoBehaviour
     {
         if (projectilePrefab && firePoint)
         {
-            Vector2 fireDirection = enemyControl.IsFacingRight ? Vector2.right : Vector2.left;
+            // Определяем горизонтальное направление выстрела:
+            // Если игрок находится правее врага, то horizontalDir = 1, иначе -1.
+            float horizontalDir = (player.position.x - transform.position.x) >= 0 ? 1f : -1f;
+            Vector2 fireDirection = new Vector2(horizontalDir, 0f); // строго горизонтально
 
-            GameObject projectile = Instantiate(
-                projectilePrefab,
-                firePoint.position,
-                Quaternion.identity
-            );
-
-            projectile.GetComponent<Rigidbody2D>().linearVelocity = fireDirection * 10f;
+            // Создаем пулю в позиции firePoint
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Отключаем гравитацию и вращение (если требуется)
+                rb.gravityScale = 0f;
+                rb.freezeRotation = true;
+                rb.linearVelocity = fireDirection * projectileSpeed;
+            }
+            // Игнорируем столкновение пули с врагом
+            Collider2D projCollider = projectile.GetComponent<Collider2D>();
+            Collider2D enemyCollider = GetComponent<Collider2D>();
+            if (projCollider != null && enemyCollider != null)
+            {
+                Physics2D.IgnoreCollision(projCollider, enemyCollider);
+            }
             Destroy(projectile, 2f);
 
-            // 🔊 Воспроизведение звука выстрела
+            // Проигрываем звук выстрела
             if (audioSource && shootSound)
             {
-                audioSource.volume = shootSoundVolume;  // Устанавливаем громкость звука
+                audioSource.volume = shootSoundVolume;
                 audioSource.PlayOneShot(shootSound);
             }
         }
@@ -106,13 +120,8 @@ public class ShootingEnemy : MonoBehaviour
 
     bool HasLineOfSight()
     {
-        Vector2 rayDirection = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            rayDirection,
-            detectionAreaSize.magnitude,
-            obstacleLayer
-        );
+        Vector2 rayDir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDir, detectionAreaSize.magnitude, obstacleLayer);
         return hit.collider == null;
     }
 
@@ -136,12 +145,13 @@ public class ShootingEnemy : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.3f);
         Gizmos.DrawWireCube(transform.position, detectionAreaSize);
-
-        if (enemyControl != null)
+        if (firePoint != null)
         {
             Gizmos.color = Color.yellow;
-            Vector3 direction = enemyControl.IsFacingRight ? Vector3.right : Vector3.left;
-            Gizmos.DrawRay(firePoint.position, direction * 5f);
+            // Рисуем строго горизонтальную линию из firePoint в направлении, определенном по оси X
+            float horizontalDir = (player != null && player.position.x - transform.position.x >= 0) ? 1f : -1f;
+            Vector3 drawDir = new Vector3(horizontalDir, 0f, 0f);
+            Gizmos.DrawRay(firePoint.position, drawDir * 5f);
         }
     }
 }

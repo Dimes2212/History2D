@@ -872,9 +872,10 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
-  audioSource: {fileID: 1287666833}
+  audioSource: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.01
+  shootSoundVolume: 0.02
+  projectileSpeed: 10
 --- !u!61 &89903388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16192,8 +16193,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5902057631373307971, guid: 1fa5bb19172e4c3499f5d116b43c681b, type: 3}
   firePoint: {fileID: 827936093}
   shootCooldown: 1.2
+  projectileSpeed: 15
   shootSound: {fileID: 8300000, guid: 1f51fd93de43c473e96207f8512b6be7, type: 3}
-  shootVolume: 0.05
+  shootVolume: 0.2
 --- !u!114 &1287666830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17505,7 +17507,7 @@ Transform:
   m_GameObject: {fileID: 1762164430}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.126, y: 0.053985316, z: -0.046783365}
+  m_LocalPosition: {x: -0.203, y: 0.053985316, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []

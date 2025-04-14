@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.4, y: 178}
+  m_AnchoredPosition: {x: -307.4, y: 121.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &73809676
@@ -12881,7 +12881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.4, y: 154}
+  m_AnchoredPosition: {x: -307.4, y: 122.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &534505787
@@ -15195,7 +15195,7 @@ MonoBehaviour:
   playerTag: Player
   interactKey: 101
   hintText: {fileID: 34741235}
-  hintMessage: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
+  hintMessage: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 [E]"
   customFont: {fileID: 11400000, guid: e4b2e467d7fcb44168e9cc2637b39b0f, type: 2}
   displayImage: {fileID: 1437920278}
   hideOnExit: 1

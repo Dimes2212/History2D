@@ -29,7 +29,7 @@ public class EnemyControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animator = GetComponent<Animator>();
+        
     if (animator == null)
     {
         Debug.LogError("Animator component missing!");

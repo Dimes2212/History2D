@@ -24,12 +24,14 @@ public class ShootingEnemy : MonoBehaviour
     private EnemyControl enemyControl;
     private float nextFireTime;
     private bool playerDetected;
+    private Animator animator;
 
     void Start()
     {
         enemyControl = GetComponent<EnemyControl>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         InitializeDetectionArea();
+        animator = GetComponent<Animator>();
     }
 
     void InitializeDetectionArea()
@@ -85,6 +87,8 @@ public class ShootingEnemy : MonoBehaviour
     {
         if (projectilePrefab && firePoint)
         {
+            animator.SetInteger("EnemyState", 2);
+    
             // Определяем горизонтальное направление выстрела:
             // Если игрок находится правее врага, то horizontalDir = 1, иначе -1.
             float horizontalDir = (player.position.x - transform.position.x) >= 0 ? 1f : -1f;
@@ -114,6 +118,7 @@ public class ShootingEnemy : MonoBehaviour
             {
                 audioSource.volume = shootSoundVolume;
                 audioSource.PlayOneShot(shootSound);
+                
             }
         }
     }

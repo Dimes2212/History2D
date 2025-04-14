@@ -12,6 +12,11 @@ public class ShootingEnemy : MonoBehaviour
     [Header("Detection Settings")]
     [SerializeField] private LayerMask obstacleLayer;
 
+    [Header("Audio")] // 🎵 Новый блок
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private float shootSoundVolume = 1f; // Уровень громкости звука выстрела
+
     private Transform player;
     private EnemyControl enemyControl;
     private float nextFireTime;
@@ -79,7 +84,6 @@ public class ShootingEnemy : MonoBehaviour
     {
         if (projectilePrefab && firePoint)
         {
-            // Стрельба строго горизонтально
             Vector2 fireDirection = enemyControl.IsFacingRight ? Vector2.right : Vector2.left;
 
             GameObject projectile = Instantiate(
@@ -90,6 +94,13 @@ public class ShootingEnemy : MonoBehaviour
 
             projectile.GetComponent<Rigidbody2D>().linearVelocity = fireDirection * 10f;
             Destroy(projectile, 2f);
+
+            // 🔊 Воспроизведение звука выстрела
+            if (audioSource && shootSound)
+            {
+                audioSource.volume = shootSoundVolume;  // Устанавливаем громкость звука
+                audioSource.PlayOneShot(shootSound);
+            }
         }
     }
 
@@ -123,11 +134,9 @@ public class ShootingEnemy : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Визуализация квадратной зоны
         Gizmos.color = new Color(1, 0, 0, 0.3f);
         Gizmos.DrawWireCube(transform.position, detectionAreaSize);
 
-        // Линия выстрела
         if (enemyControl != null)
         {
             Gizmos.color = Color.yellow;

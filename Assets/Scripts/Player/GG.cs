@@ -12,9 +12,12 @@ public class GG : MonoBehaviour
     private Vector3 originalScale;
     private Animator animator;
 
-    public AudioSource audioSource;           // Источник звука
-    public AudioClip footstepSound;           // Звук шага
-    public float stepInterval = 0.4f;         // Интервал между шагами
+    [Header("Audio Settings")]
+    public AudioSource audioSource;       // Источник звука
+    public AudioClip footstepSound;       // Звук шага
+    public float stepInterval = 0.4f;     // Интервал между шагами
+    [Range(0f, 1f)] public float footstepVolume = 1f; // Громкость звука шагов
+
     private float stepTimer = 0f;
 
     void Start()
@@ -22,6 +25,16 @@ public class GG : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale;
         animator = GetComponent<Animator>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        if (audioSource != null)
+        {
+            audioSource.volume = footstepVolume; // Устанавливаем громкость
+        }
     }
 
     void Update()
@@ -72,7 +85,10 @@ public class GG : MonoBehaviour
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
             {
-                audioSource.PlayOneShot(footstepSound);
+                if (audioSource != null && footstepSound != null)
+                {
+                    audioSource.PlayOneShot(footstepSound, footstepVolume);
+                }
                 stepTimer = stepInterval;
             }
         }

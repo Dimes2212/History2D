@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public EnemyStats stats;
-    public SpriteRenderer spriteRenderer;
-    public Color damageColor = Color.red;
-    public float colorDuration = 0.2f;
+    public EnemyStats stats;              // Ссылка на скрипт характеристик врага
+    public SpriteRenderer spriteRenderer;  // Рендерер врага для визуальных эффектов
+    public Color damageColor = Color.red;  // Цвет при получении урона
+    public float colorDuration = 0.2f;     // Время мигания
 
     [Header("Audio")]
-    public AudioClip hitSound;                    // Звук попадания
-    public AudioClip deathSound;                  // Звук смерти
-    [SerializeField] private float hitSoundVolume = 1f;
-    [SerializeField] private float deathSoundVolume = 1f;
+    public AudioSource audioSource;       // Источник звука
+    public AudioClip deathSound;          // Звук смерти
+    [SerializeField] private float deathSoundVolume = 1f; // Громкость звука смерти
+    [SerializeField] private float deathDelay = 0.5f;      // Задержка перед уничтожением, чтобы звук успел проиграться
+
+    [Header("Pickup Settings")]
+    public GameObject ammoPickupPrefab;   // Префаб предмета-подбиралки, который даёт патроны
 
     private Color originalColor;
 
@@ -21,23 +24,31 @@ public class EnemyDamage : MonoBehaviour
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
         originalColor = spriteRenderer.color;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Если столкновение произошло с пулей
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
         if (bullet != null)
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);   // Уничтожаем пулю
 
-            PlayHitSound();               // 💥 Звук попадания
+            // Наносим урон врагу
             stats.TakeDamage(1);
+
+            // Запускаем визуальный эффект (мигание)
             StartCoroutine(FlashDamageColor());
 
+            // Если здоровье равно 0, инициируем смерть врага
             if (stats.currentHealth <= 0)
             {
-                Die();
+                Debug.Log("Здоровье врага 0, вызываем Die()");
+                StartCoroutine(DieWithDelay());
             }
         }
     }
@@ -49,39 +60,29 @@ public class EnemyDamage : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    void PlayHitSound()
+    IEnumerator DieWithDelay()
     {
-        if (hitSound != null)
+        // Воспроизведение звука смерти
+        if (audioSource != null && deathSound != null)
         {
-            GameObject tempHitSound = new GameObject("TempHitSound");
-            tempHitSound.transform.position = transform.position;
-
-            AudioSource hitSource = tempHitSound.AddComponent<AudioSource>();
-            hitSource.clip = hitSound;
-            hitSource.volume = hitSoundVolume;
-            hitSource.Play();
-
-            Destroy(tempHitSound, hitSound.length);
+            Debug.Log("Воспроизведение звука смерти");
+            audioSource.volume = deathSoundVolume;
+            audioSource.PlayOneShot(deathSound);
         }
-    }
-
-    void Die()
-    {
-        Debug.Log("Враг погиб");
-
-        if (deathSound != null)
+        else
         {
-            GameObject tempDeathSound = new GameObject("TempDeathSound");
-            tempDeathSound.transform.position = transform.position;
-
-            AudioSource deathSource = tempDeathSound.AddComponent<AudioSource>();
-            deathSource.clip = deathSound;
-            deathSource.volume = deathSoundVolume;
-            deathSource.Play();
-
-            Destroy(tempDeathSound, deathSound.length);
+            Debug.LogWarning("AudioSource или deathSound не назначены!");
         }
 
-        Destroy(gameObject);
+        // Создаем предмет-подбиралку для патронов
+        if (ammoPickupPrefab != null)
+        {
+            Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Задержка перед уничтожением врага
+        yield return new WaitForSeconds(deathDelay);
+
+        Destroy(gameObject); // Уничтожаем врага
     }
 }

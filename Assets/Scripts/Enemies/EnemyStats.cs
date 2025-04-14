@@ -8,6 +8,9 @@ public class EnemyStats : MonoBehaviour
     public int maxAmmo = 10;         // Максимальное количество патронов
     public int currentAmmo;          // Текущее количество патронов
 
+    [Header("Drop Settings")]
+    public GameObject ammoBoxPrefab; // Префаб коробки с патронами
+
     void Start()
     {
         currentHealth = maxHealth;   // Инициализация здоровья
@@ -43,7 +46,17 @@ public class EnemyStats : MonoBehaviour
     void Die()
     {
         Debug.Log("Враг погиб");
-        // Здесь можно добавить анимацию смерти, уничтожение объекта или другие действия
+        DropAmmoBox(); // Спавн коробки с патронами
+
         Destroy(gameObject);  // Уничтожение объекта (враг погиб)
+    }
+
+    // Спавн коробки с патронами
+    void DropAmmoBox()
+    {
+        if (ammoBoxPrefab != null)
+        {
+            Instantiate(ammoBoxPrefab, transform.position, Quaternion.identity);
+        }
     }
 }

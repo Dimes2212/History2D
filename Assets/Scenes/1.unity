@@ -1035,6 +1035,7 @@ MonoBehaviour:
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
+  ammoBoxPrefab: {fileID: 6028139832579534590, guid: 561b8df5f7dde4375836813f41ac98bb, type: 3}
 --- !u!114 &89903391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,10 +1052,11 @@ MonoBehaviour:
   spriteRenderer: {fileID: 89903379}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  hitSound: {fileID: 8300000, guid: 26f4f8af937234cf9b9f98f579cd0476, type: 3}
+  audioSource: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
-  hitSoundVolume: 0.05
   deathSoundVolume: 0.5
+  deathDelay: 0.5
+  ammoPickupPrefab: {fileID: 0}
 --- !u!1001 &91243986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12285,7 +12287,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8012655433164689462, guid: c3b86686583e114479cc11b139a8a401, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1996318151}
   m_SourcePrefab: {fileID: 100100000, guid: c3b86686583e114479cc11b139a8a401, type: 3}
 --- !u!4 &397623122 stripped
 Transform:
@@ -13148,10 +13153,11 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  hitSound: {fileID: 0}
+  audioSource: {fileID: 0}
   deathSound: {fileID: 0}
-  hitSoundVolume: 1
   deathSoundVolume: 1
+  deathDelay: 0.5
+  ammoPickupPrefab: {fileID: 0}
 --- !u!1 &615740036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3261066817682409598, guid: f41211a6e39d8ab42a846d7622cabd05, type: 3}
@@ -15268,6 +15274,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1075344602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1014413599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8012655433164689462, guid: c3b86686583e114479cc11b139a8a401, type: 3}
+  m_PrefabInstance: {fileID: 376171251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1026865683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18546,6 +18557,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8012655433164689460, guid: c3b86686583e114479cc11b139a8a401, type: 3}
   m_PrefabInstance: {fileID: 376171251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1996318151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014413599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7792c19c6d74440e685fbd6ffe3392a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoAmount: 5
+  audioSource: {fileID: 0}
+  pickupSound: {fileID: 0}
+  pickupVolume: 1
 --- !u!1001 &1997044123
 PrefabInstance:
   m_ObjectHideFlags: 0

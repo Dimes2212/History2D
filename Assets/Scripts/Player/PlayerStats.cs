@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    
     public int maxHealth = 100;      // Максимальное здоровье
     public int currentHealth;        // Текущее здоровье
 
@@ -66,12 +65,20 @@ public class PlayerStats : MonoBehaviour
             ammoText.text = "X" + currentAmmo.ToString();      // Только число
     }
 
-
     // Дополнительный метод для восстановления здоровья
     public void RestoreFullHealth()
     {
         currentHealth = maxHealth;
         currentAmmo = maxAmmo;
         UpdateHUD();
+    }
+
+    // Метод для добавления патронов
+    public void AddAmmo(int amount)
+    {
+        currentAmmo += amount;
+        if (currentAmmo > maxAmmo)
+            currentAmmo = maxAmmo;
+        UpdateHUD(); // Если HUD обновляется, обновите отображение
     }
 }

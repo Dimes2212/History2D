@@ -6,7 +6,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;       // Префаб пули
     public Transform firePoint;           // Точка, откуда появляется пуля
     public float shootCooldown = 0.5f;      // Задержка между выстрелами
-    public float projectileSpeed = 15f;     // Скорость пули
+    public float projectileSpeed = 30f;     // Скорость пули
 
     [Header("Audio Settings")]
     public AudioClip shootSound;          // Звук выстрела

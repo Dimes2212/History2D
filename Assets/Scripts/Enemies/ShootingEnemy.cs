@@ -72,11 +72,11 @@ public class ShootingEnemy : MonoBehaviour
         }
     }
 
-    // Переворачиваем врага в сторону игрока, чтобы визуально он смотрел в нужную сторону
     void FacePlayer()
     {
         float xDiff = player.position.x - transform.position.x;
         bool shouldFaceRight = xDiff > 0;
+
         if (shouldFaceRight != enemyControl.IsFacingRight)
         {
             enemyControl.Flip();
@@ -88,22 +88,21 @@ public class ShootingEnemy : MonoBehaviour
         if (projectilePrefab && firePoint)
         {
             animator.SetInteger("EnemyState", 2);
-    
-            // Определяем горизонтальное направление выстрела:
-            // Если игрок находится правее врага, то horizontalDir = 1, иначе -1.
-            float horizontalDir = (player.position.x - transform.position.x) >= 0 ? 1f : -1f;
-            Vector2 fireDirection = new Vector2(horizontalDir, 0f); // строго горизонтально
+
+            // Определяем направление выстрела в зависимости от позиции игрока
+            float horizontalDir = (player.position.x - transform.position.x) > 0 ? 1f : -1f;
+            Vector2 fireDirection = new Vector2(horizontalDir, 0f); // только по горизонтали
 
             // Создаем пулю в позиции firePoint
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                // Отключаем гравитацию и вращение (если требуется)
                 rb.gravityScale = 0f;
                 rb.freezeRotation = true;
-                rb.linearVelocity = fireDirection * projectileSpeed;
+                rb.linearVelocity = fireDirection * projectileSpeed; // корректная установка скорости
             }
+
             // Игнорируем столкновение пули с врагом
             Collider2D projCollider = projectile.GetComponent<Collider2D>();
             Collider2D enemyCollider = GetComponent<Collider2D>();
@@ -111,6 +110,7 @@ public class ShootingEnemy : MonoBehaviour
             {
                 Physics2D.IgnoreCollision(projCollider, enemyCollider);
             }
+
             Destroy(projectile, 2f);
 
             // Проигрываем звук выстрела
@@ -118,7 +118,6 @@ public class ShootingEnemy : MonoBehaviour
             {
                 audioSource.volume = shootSoundVolume;
                 audioSource.PlayOneShot(shootSound);
-                
             }
         }
     }

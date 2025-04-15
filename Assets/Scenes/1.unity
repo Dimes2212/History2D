@@ -16392,6 +16392,7 @@ MonoBehaviour:
   currentAmmo: 2
   healthText: {fileID: 246357332}
   ammoText: {fileID: 751162118}
+  respawnPoint: {fileID: 189134718}
 --- !u!114 &1287666832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16408,7 +16409,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1287666820}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  respawnPoint: {fileID: 189134718}
 --- !u!82 &1287666833
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17672,7 +17672,7 @@ Transform:
   m_GameObject: {fileID: 1762164430}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.203, y: 0.053985316, z: -0.046783365}
+  m_LocalPosition: {x: -0.177, y: 0.108, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []

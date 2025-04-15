@@ -1,164 +1,127 @@
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyControl))]
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EnemyControl), typeof(Rigidbody2D))]
 public class MeleeEnemy : MonoBehaviour
 {
     [Header("Combat Settings")]
-    [SerializeField] private Vector2 detectionAreaSize = new Vector2(3f, 2f); // Размер зоны обнаружения
-    [SerializeField] private float moveSpeed = 2f; // Скорость перемещения
-    [SerializeField] private float attackRate = 1f; // Скорость атаки
-    [SerializeField] private float attackRange = 1.5f; // Расстояние для атаки
+    public float detectionRadius = 5f;
+    public float attackRange = 1.5f;
+    public float attackCooldown = 1.5f;
+    public int damage = 10;
+    public float chaseSpeed = 2f;
 
-    [Header("Detection Settings")]
-    [SerializeField] private LayerMask playerLayer; // Для поиска игрока
-    [SerializeField] private LayerMask obstacleLayer; // Для поиска препятствий
+    [Header("Animation")]
+    public string attackAnimationTrigger = "Attack"; // 👉 слот для триггера
 
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip attackSound;
-    [SerializeField] private float attackSoundVolume = 1f;
-
-    [Header("Melee Settings")]
-    [SerializeField] private EnemySword sword; // Меч врага
+    public AudioClip attackSound;
+    public AudioSource audioSource;
 
     private Transform player;
-    private Rigidbody2D rb;
     private EnemyControl enemyControl;
-    private float nextAttackTime;
-    private bool playerDetected;
-    private bool swordIsEnabled = false;
-    private bool isAttacking = false;
+    private Rigidbody2D rb;
+    private Animator animator;
+    private float lastAttackTime;
+    private bool isAttacking;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
         enemyControl = GetComponent<EnemyControl>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        InitializeDetectionArea();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        rb.gravityScale = 1;
+        rb.freezeRotation = true;
     }
 
-    void InitializeDetectionArea()
+    void FixedUpdate()
     {
-        BoxCollider2D detector = gameObject.AddComponent<BoxCollider2D>();
-        detector.isTrigger = true;
-        detector.size = detectionAreaSize;
-    }
+        if (player == null) return;
 
-    void Update()
-    {
-        if (playerDetected && IsPlayerInCombatArea())
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if (distance <= detectionRadius)
         {
-            HandleCombat();
+            enemyControl.StopPatrol();
+            FacePlayer();
+
+            if (distance > attackRange)
+            {
+                MoveTowardsPlayer();
+            }
+            else
+            {
+                StopMovement();
+                TryAttack();
+            }
         }
         else
         {
+            StopMovement();
             enemyControl.ResumePatrol();
-            if (sword != null && swordIsEnabled)
-            {
-                sword.DisableDamage();
-                swordIsEnabled = false;
-            }
         }
     }
 
-    bool IsPlayerInCombatArea()
+    void MoveTowardsPlayer()
     {
-        Vector2 playerPos = player.position;
-        Vector2 enemyPos = transform.position;
-        return Mathf.Abs(playerPos.x - enemyPos.x) <= detectionAreaSize.x / 2 &&
-               Mathf.Abs(playerPos.y - enemyPos.y) <= detectionAreaSize.y / 2;
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = new Vector2(direction.x * chaseSpeed, rb.linearVelocity.y);
+
+        animator?.SetInteger("EnemyState", 1); // Бег
     }
 
-    void HandleCombat()
+    void StopMovement()
     {
-        enemyControl.StopPatrol();
-        FacePlayer();
-
-        // Остановка врага на нужном расстоянии
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer > attackRange)
-        {
-            MoveTowardPlayer();
-        }
-        else
-        {
-            // Останавливаем врага, если он близко к игроку
-            rb.linearVelocity = Vector2.zero;
-
-            // Если враг находится в зоне атаки, начинаем атаку
-            if (!isAttacking && Time.time >= nextAttackTime)
-            {
-                AttackWithSword();
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
-        }
-    }
-
-    void MoveTowardPlayer()
-    {
-        if (player != null)
-        {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y); // Двигаемся только по оси X
-        }
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator?.SetInteger("EnemyState", 0); // Стоит
     }
 
     void FacePlayer()
     {
-        float xDiff = player.position.x - transform.position.x;
-        bool shouldFaceRight = xDiff > 0;
+        float diff = player.position.x - transform.position.x;
+        bool shouldFaceRight = diff > 0;
+
         if (shouldFaceRight != enemyControl.IsFacingRight)
-        {
             enemyControl.Flip();
-        }
     }
 
-    void AttackWithSword()
+    void TryAttack()
     {
-        if (sword != null)
+        if (Time.time < lastAttackTime + attackCooldown || isAttacking) return;
+
+        isAttacking = true;
+        lastAttackTime = Time.time;
+
+        if (!string.IsNullOrEmpty(attackAnimationTrigger) && animator)
+            animator.SetTrigger(attackAnimationTrigger); // 🧨 Триггер из инспектора
+
+        Invoke(nameof(DoDamage), 0.3f);
+        Invoke(nameof(ResetAttack), attackCooldown);
+    }
+
+    void DoDamage()
+    {
+        if (player != null && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            sword.EnableDamage(); // Включаем урон мечом
-            swordIsEnabled = true;
-            isAttacking = true;
+            PlayerStats stats = player.GetComponent<PlayerStats>();
+            stats?.TakeDamage(damage);
 
-            // Звук атаки
             if (audioSource && attackSound)
-            {
-                audioSource.volume = attackSoundVolume;
                 audioSource.PlayOneShot(attackSound);
-            }
-
-            // После атаки даем время на кулдаун
-            Invoke("ResetAttack", 0.5f); // Делаем задержку перед следующей атакой
         }
     }
 
     void ResetAttack()
     {
         isAttacking = false;
-        sword.DisableDamage(); // Отключаем урон мечом после атаки
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnDrawGizmosSelected()
     {
-        if (other.CompareTag("Player"))
-        {
-            playerDetected = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerDetected = false;
-        }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = new Color(1, 0, 0, 0.3f);
-        Gizmos.DrawWireCube(transform.position, detectionAreaSize);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

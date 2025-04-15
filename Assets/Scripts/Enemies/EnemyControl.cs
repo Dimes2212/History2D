@@ -62,7 +62,9 @@ public class EnemyControl : MonoBehaviour
     if (animator != null)
     {
         animator.SetInteger("EnemyState", 1);
-    }
+        animator.SetInteger("EnemyState2", 1);
+
+        }
 
     Vector2 targetPosition = patrolPoints[currentTargetIndex].position;
     Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
@@ -121,7 +123,8 @@ public class EnemyControl : MonoBehaviour
     if (animator != null)
     {
         animator.SetInteger("EnemyState", 0); // 0 - состояние покоя
-    }
+        animator.SetInteger("EnemyState2", 0);
+        }
     }
 
     public void ResumePatrol()

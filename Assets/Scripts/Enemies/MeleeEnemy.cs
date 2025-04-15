@@ -68,13 +68,13 @@ public class MeleeEnemy : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * chaseSpeed, rb.linearVelocity.y);
 
-        animator?.SetInteger("EnemyState", 1); // Бег
+        animator?.SetInteger("EnemyState2", 1); // Бег
     }
 
     void StopMovement()
     {
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-        animator?.SetInteger("EnemyState", 0); // Стоит
+        //animator?.SetInteger("EnemyState2", 0); // Стоит
     }
 
     void FacePlayer()
@@ -89,6 +89,7 @@ public class MeleeEnemy : MonoBehaviour
     void TryAttack()
     {
         if (Time.time < lastAttackTime + attackCooldown || isAttacking) return;
+        animator?.SetInteger("EnemyState2", 2); // бьет
 
         isAttacking = true;
         lastAttackTime = Time.time;

@@ -1,152 +1,266 @@
-using UnityEngine;
+////using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    [Header("Настройки патрулирования")]
-    public Vector2[] patrolCoordinates;
-    public float patrolSpeed = 2f;
-    public float reachDistance = 0.1f;
+////public class Enemy : MonoBehaviour
+////{
+////    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+////    public Vector2[] patrolCoordinates;
+////    public float patrolSpeed = 2f;
+////    public float reachDistance = 0.1f;
 
-    [Header("Настройки преследования")]
-    public float chaseSpeed = 4f;
-    public float chaseDistance = 5f;
-    public float stopDistance = 1f;
+////    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+////    public float chaseSpeed = 4f;
+////    public float chaseDistance = 5f;
+////    public float stopDistance = 1f;
 
-    [Header("Настройки простоя")]
-    public float idleTime = 2f;
-    public float idleInterval = 10f;
+////    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+////    public float idleTime = 2f;
+////    public float idleInterval = 10f;
 
-    private Transform player;
-    private int currentPointIndex = 0;
-    private bool isChasing = false;
-    private bool isIdle = false;
-    private float idleTimer = 0f;
-    private float nextIdleTime;
-    private Vector3 originalScale;
+////    private Transform player;
+////    private int currentPointIndex = 0;
+////    private bool isChasing = false;
+////    private bool isIdle = false;
+////    private float idleTimer = 0f;
+////    private float nextIdleTime;
+////    private Vector3 originalScale;
 
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        originalScale = transform.localScale;
-        nextIdleTime = Time.time + idleInterval;
-    }
+////    void Start()
+////    {
+////        player = GameObject.FindGameObjectWithTag("Player").transform;
+////        originalScale = transform.localScale;
+////        nextIdleTime = Time.time + idleInterval;
+////    }
 
-    void Update()
-    {
-        if (isIdle)
-            HandleIdleState();
-        else
-        {
-            if (isChasing)
-                ChasePlayer();
-            else
-                Patrol();
-        }
+////    void Update()
+////    {
+////        if (isIdle)
+////            HandleIdleState();
+////        else
+////        {
+////            if (isChasing)
+////                ChasePlayer();
+////            else
+////                Patrol();
+////        }
 
-        FlipSprite();
-    }
+////        FlipSprite();
+////    }
 
-    void Patrol()
-    {
-        if (patrolCoordinates.Length == 0) return;
+////    void Patrol()
+////    {
+////        if (patrolCoordinates.Length == 0) return;
 
-        // Проверка на простой
-        if (Time.time >= nextIdleTime && !isIdle)
-        {
-            StartIdle();
-            nextIdleTime = Time.time + idleInterval;
-        }
+////        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+////        if (Time.time >= nextIdleTime && !isIdle)
+////        {
+////            StartIdle();
+////            nextIdleTime = Time.time + idleInterval;
+////        }
 
-        // Движение к текущей координате
-        Vector2 target = patrolCoordinates[currentPointIndex];
-        Vector3 targetPosition = new Vector3(target.x, target.y, transform.position.z);
+////        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+////        Vector2 target = patrolCoordinates[currentPointIndex];
+////        Vector3 targetPosition = new Vector3(target.x, target.y, transform.position.z);
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPosition,
-            patrolSpeed * Time.deltaTime
-        );
+////        transform.position = Vector3.MoveTowards(
+////            transform.position,
+////            targetPosition,
+////            patrolSpeed * Time.deltaTime
+////        );
 
-        // Проверка достижения точки
-        if (Vector3.Distance(transform.position, targetPosition) < reachDistance)
-        {
-            currentPointIndex = (currentPointIndex + 1) % patrolCoordinates.Length;
-        }
-    }
+////        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+////        if (Vector3.Distance(transform.position, targetPosition) < reachDistance)
+////        {
+////            currentPointIndex = (currentPointIndex + 1) % patrolCoordinates.Length;
+////        }
+////    }
 
-    void ChasePlayer()
-    {
-        // Проверка дистанции
-        if (Vector3.Distance(transform.position, player.position) > stopDistance)
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                player.position,
-                chaseSpeed * Time.deltaTime
-            );
-        }
-        else
-        {
-            isChasing = false; // Останавливаем преследование при достижении игрока
-        }
-    }
+////    void ChasePlayer()
+////    {
+////        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+////        if (Vector3.Distance(transform.position, player.position) > stopDistance)
+////        {
+////            transform.position = Vector3.MoveTowards(
+////                transform.position,
+////                player.position,
+////                chaseSpeed * Time.deltaTime
+////            );
+////        }
+////        else
+////        {
+////            isChasing = false; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+////        }
+////    }
 
-    void HandleIdleState()
-    {
-        idleTimer -= Time.deltaTime;
+////    void HandleIdleState()
+////    {
+////        idleTimer -= Time.deltaTime;
 
-        if (idleTimer <= 0)
-        {
-            isIdle = false;
-        }
-    }
+////        if (idleTimer <= 0)
+////        {
+////            isIdle = false;
+////        }
+////    }
 
-    void StartIdle()
-    {
-        isIdle = true;
-        idleTimer = idleTime;
-    }
+////    void StartIdle()
+////    {
+////        isIdle = true;
+////        idleTimer = idleTime;
+////    }
 
-    void FlipSprite()
-    {
-        Vector3 direction;
-        if (isChasing)
-        {
-            direction = player.position - transform.position;
-        }
-        else
-        {
-            Vector2 target = patrolCoordinates[currentPointIndex];
-            direction = new Vector3(target.x, target.y, transform.position.z) - transform.position;
-        }
+////    void FlipSprite()
+////    {
+////        Vector3 direction;
+////        if (isChasing)
+////        {
+////            direction = player.position - transform.position;
+////        }
+////        else
+////        {
+////            Vector2 target = patrolCoordinates[currentPointIndex];
+////            direction = new Vector3(target.x, target.y, transform.position.z) - transform.position;
+////        }
 
-        // Поворот спрайта
-        if (direction.x > 0)
-            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
-        else if (direction.x < 0)
-            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
-    }
+////        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+////        if (direction.x > 0)
+////            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+////        else if (direction.x < 0)
+////            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
+////    }
 
-    // Триггеры для смены состояния
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && !isIdle)
-        {
-            isChasing = true;
-        }
-    }
+////    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+////    void OnTriggerEnter2D(Collider2D other)
+////    {
+////        if (other.CompareTag("Player") && !isIdle)
+////        {
+////            isChasing = true;
+////        }
+////    }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isChasing = false;
-        }
-    }
+////    void OnTriggerExit2D(Collider2D other)
+////    {
+////        if (other.CompareTag("Player"))
+////        {
+////            isChasing = false;
+////        }
+////    }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseDistance);
-    }
-}
+////    void OnDrawGizmosSelected()
+////    {
+////        Gizmos.color = Color.yellow;
+////        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+////    }
+////}
+
+
+//using UnityEngine;
+
+//public class Enemy : MonoBehaviour
+//{
+//    [Header("РќР°СЃС‚СЂРѕР№РєРё РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёСЏ")]
+//    public Vector2[] patrolCoordinates;
+//    public float patrolSpeed = 2f;
+//    public float reachDistance = 0.1f;
+
+//    [Header("РќР°СЃС‚СЂРѕР№РєРё РїСЂРµСЃР»РµРґРѕРІР°РЅРёСЏ")]
+//    public float chaseSpeed = 4f;
+//    public float chaseDistance = 5f;
+//    public float stopDistance = 1f;
+
+//    [Header("РќР°СЃС‚СЂРѕР№РєРё Р±РµР·РґРµР№СЃС‚РІРёСЏ")]
+//    public float idleTime = 2f;
+//    public float idleInterval = 10f;
+
+//    private Transform player;
+//    private int currentPointIndex = 0;
+//    private bool isChasing = false;
+//    private bool isIdle = false;
+//    private float idleTimer = 0f;
+//    private float nextIdleTime;
+//    private Vector3 originalScale;
+
+//    void Start()
+//    {
+//        player = GameObject.FindGameObjectWithTag("Player").transform;
+//        originalScale = transform.localScale;
+//        nextIdleTime = Time.time + idleInterval;
+
+//        // Р”РѕР±Р°РІР»СЏРµРј РїСЂРѕРІРµСЂРєСѓ РЅР° РЅР°Р»РёС‡РёРµ С‚РѕС‡РµРє РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёСЏ
+//        if (patrolCoordinates == null || patrolCoordinates.Length == 0)
+//        {
+//            Debug.LogError("РќРµ Р·Р°РґР°РЅС‹ С‚РѕС‡РєРё РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёСЏ РґР»СЏ РІСЂР°РіР°!");
+//            enabled = false;
+//        }
+//    }
+
+//    void Update()
+//    {
+//        if (isIdle)
+//            HandleIdleState();
+//        else
+//        {
+//            if (isChasing)
+//                ChasePlayer();
+//            else
+//                Patrol();
+//        }
+
+//        FlipSprite();
+//    }
+
+//    void Patrol()
+//    {
+//        // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° РЅР° СЃР»СѓС‡Р°Р№ РёР·РјРµРЅРµРЅРёСЏ РјР°СЃСЃРёРІР° РІРѕ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ
+//        if (patrolCoordinates == null || patrolCoordinates.Length == 0) return;
+
+//        if (Time.time >= nextIdleTime && !isIdle)
+//        {
+//            StartIdle();
+//            nextIdleTime = Time.time + idleInterval;
+//        }
+
+//        Vector2 target = patrolCoordinates[currentPointIndex];
+//        Vector3 targetPosition = new Vector3(target.x, target.y, transform.position.z);
+
+//        transform.position = Vector3.MoveTowards(
+//            transform.position,
+//            targetPosition,
+//            patrolSpeed * Time.deltaTime
+//        );
+
+//        if (Vector3.Distance(transform.position, targetPosition) < reachDistance)
+//        {
+//            currentPointIndex = (currentPointIndex + 1) % patrolCoordinates.Length;
+//        }
+//    }
+
+//    void FlipSprite()
+//    {
+//        // Р—Р°С‰РёС‚Р° РѕС‚ РІС‹С…РѕРґР° Р·Р° РіСЂР°РЅРёС†С‹ РјР°СЃСЃРёРІР°
+//        if (patrolCoordinates == null || patrolCoordinates.Length == 0) return;
+
+//        Vector3 direction;
+//        if (isChasing)
+//        {
+//            direction = player.position - transform.position;
+//        }
+//        else
+//        {
+//            // РџСЂРѕРІРµСЂРєР° Р°РєС‚СѓР°Р»СЊРЅРѕСЃС‚Рё РёРЅРґРµРєСЃР°
+//            if (currentPointIndex >= patrolCoordinates.Length)
+//            {
+//                currentPointIndex = 0;
+//            }
+
+//            Vector2 target = patrolCoordinates[currentPointIndex];
+//            direction = new Vector3(target.x, target.y, transform.position.z) - transform.position;
+//        }
+
+//        if (direction.x > 0)
+//            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+//        else if (direction.x < 0)
+//            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
+//    }
+
+//    // РћСЃС‚Р°Р»СЊРЅС‹Рµ РјРµС‚РѕРґС‹ РѕСЃС‚Р°СЋС‚СЃСЏ Р±РµР· РёР·РјРµРЅРµРЅРёР№
+//    // ...
+//}

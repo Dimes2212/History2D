@@ -31,6 +31,7 @@ public class PlayerShooting : MonoBehaviour
         {
             if (stats != null && stats.UseAmmo()) // стреляем только если патроны есть
             {
+                animator.SetInteger("State", 3);
                 Shoot();
                 shootTimer = 0f;
             }

@@ -20,6 +20,7 @@ public class EnemyControl : MonoBehaviour
     private int currentTargetIndex = 0;
     private Vector3 baseScale;
     private bool isMovingRight;
+    private Animator animator;
 
     public bool IsFacingRight => isMovingRight;
     public bool IsPatrolling { get; private set; } = true;
@@ -27,11 +28,18 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        
+    if (animator == null)
+    {
+        Debug.LogError("Animator component missing!");
+    }
         rb.gravityScale = 0;
         rb.freezeRotation = true;
         baseScale = transform.localScale;
         ApplyInitialFlip();
         UpdateMovementDirection();
+        
     }
 
     void FixedUpdate()
@@ -44,15 +52,21 @@ public class EnemyControl : MonoBehaviour
 
     void HandleMovement()
     {
-        if (Physics2D.Raycast(transform.position, GetDirection(), wallCheckDistance, obstacleLayer))
-        {
-            SwitchTarget();
-            return;
-        }
+         if (Physics2D.Raycast(transform.position, GetDirection(), wallCheckDistance, obstacleLayer))
+    {
+        SwitchTarget();
+        return;
+    }
 
-        Vector2 targetPosition = patrolPoints[currentTargetIndex].position;
-        Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
-        rb.MovePosition(newPosition);
+    // Устанавливаем анимацию "идёт" (1 - предположим, что это состояние ходьбы)
+    if (animator != null)
+    {
+        animator.SetInteger("EnemyState", 1);
+    }
+
+    Vector2 targetPosition = patrolPoints[currentTargetIndex].position;
+    Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
+    rb.MovePosition(newPosition);
     }
 
     void UpdateMovementDirection()
@@ -102,8 +116,12 @@ public class EnemyControl : MonoBehaviour
 
     public void StopPatrol()
     {
-        IsPatrolling = false;
-        rb.linearVelocity = Vector2.zero;
+         IsPatrolling = false;
+    rb.linearVelocity = Vector2.zero;
+    if (animator != null)
+    {
+        animator.SetInteger("EnemyState", 0); // 0 - состояние покоя
+    }
     }
 
     public void ResumePatrol()

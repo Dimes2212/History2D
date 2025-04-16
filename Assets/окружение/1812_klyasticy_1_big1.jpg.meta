@@ -225,7 +225,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      1812_klyasticy_1_big1_0: -5525876477169504256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

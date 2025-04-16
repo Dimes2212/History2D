@@ -53,28 +53,30 @@ public class EnemyDamage : MonoBehaviour
         }
     }
 
-    IEnumerator FlashDamageColor()
+    // Сделано публичным, чтобы вызывать его в других классах
+    public IEnumerator FlashDamageColor()  // изменено на public
     {
+        // Проверка на существование spriteRenderer
+        if (spriteRenderer == null) yield break;
+
         spriteRenderer.color = damageColor;
         yield return new WaitForSeconds(colorDuration);
-        spriteRenderer.color = originalColor;
+
+        // Проверка перед установкой исходного цвета
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
     }
 
     IEnumerator DieWithDelay()
     {
-        // Воспроизведение звука смерти
+        // Воспроизведение звука смерти, если источник и звуковой файл существуют
         if (audioSource != null && deathSound != null)
         {
-            Debug.Log("Воспроизведение звука смерти");
             audioSource.volume = deathSoundVolume;
             audioSource.PlayOneShot(deathSound);
         }
-        else
-        {
-            Debug.LogWarning("AudioSource или deathSound не назначены!");
-        }
 
-        // Создаем предмет-подбиралку для патронов
+        // Создаем предмет-подбиралку для патронов, если он существует
         if (ammoPickupPrefab != null)
         {
             Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
@@ -83,6 +85,8 @@ public class EnemyDamage : MonoBehaviour
         // Задержка перед уничтожением врага
         yield return new WaitForSeconds(deathDelay);
 
-        Destroy(gameObject); // Уничтожаем врага
+        // Уничтожаем врага, если объект еще существует
+        if (gameObject != null)
+            Destroy(gameObject);
     }
 }

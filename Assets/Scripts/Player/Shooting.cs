@@ -1,18 +1,37 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
     [Header("Shooting Settings")]
-    public GameObject bulletPrefab;       // Префаб пули
-    public Transform firePoint;           // Точка, откуда появляется пуля
-    public float shootCooldown = 0.5f;      // Задержка между выстрелами
-    public float projectileSpeed = 30f;     // Скорость пули
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float shootCooldown = 0.5f;
+    public float projectileSpeed = 30f;
+
+    [Header("Melee Settings")]
+    public float meleeRange = 1f;
+    public int meleeDamage = 1;
+    public float meleeCooldown = 1f;
+    public Transform meleePoint;
+    public LayerMask enemyLayer;
 
     [Header("Audio Settings")]
-    public AudioClip shootSound;          // Звук выстрела
-    [SerializeField] private float shootVolume = 1f; // Громкость звука (настраиваемое через инспектор)
+    public AudioClip shootSound;
+    public AudioClip meleeSound;
+    [SerializeField] private float shootVolume = 1f;
+    [SerializeField] private float meleeVolume = 1f;
+
+    [Header("Reload Indicator")]
+    public GameObject readyIndicatorPrefab;
+    public GameObject cooldownIndicatorPrefab;
+    public Transform indicatorPoint;
+
+    private GameObject currentIndicator;
 
     private float shootTimer = 0f;
+    private float meleeTimer = 0f;
+
     private Animator animator;
     private PlayerStats stats;
 
@@ -25,11 +44,11 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         shootTimer += Time.deltaTime;
+        meleeTimer += Time.deltaTime;
 
-        // Стрельба по нажатию клавиши F
         if (Input.GetKeyDown(KeyCode.F) && shootTimer >= shootCooldown)
         {
-            if (stats != null && stats.UseAmmo()) // стреляем только если патроны есть
+            if (stats != null && stats.UseAmmo())
             {
                 animator.SetInteger("State", 3);
                 Shoot();
@@ -40,22 +59,26 @@ public class PlayerShooting : MonoBehaviour
                 Debug.Log("Нет патронов!");
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && meleeTimer >= meleeCooldown)
+        {
+            animator.SetTrigger("Melee");
+            MeleeAttack();
+            meleeTimer = 0f;
+        }
+
+        UpdateShootIndicator();
     }
 
     void Shoot()
     {
-        // Запускаем анимацию стрельбы
         if (animator != null)
             animator.SetTrigger("Shoot");
 
-        // Создаем пулю у firePoint
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        // Определяем горизонтальное направление выстрела:
-        // Если scale.x положительный, игрок смотрит вправо => стрелять вправо; иначе — влево.
         int direction = transform.localScale.x > 0 ? 1 : -1;
 
-        // Если у пули есть скрипт Bullet с методом SetDirection, вызываем его.
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
@@ -63,34 +86,85 @@ public class PlayerShooting : MonoBehaviour
         }
         else
         {
-            // Если скрипта нет, устанавливаем скорость через Rigidbody2D.
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                // Отключаем гравитацию, если нужно, и замораживаем вращение
                 rb.gravityScale = 0f;
                 rb.freezeRotation = true;
                 rb.linearVelocity = new Vector2(direction, 0f) * projectileSpeed;
             }
         }
 
-        // Воспроизведение звука выстрела через временный AudioSource
-        PlayShootSound();
+        PlaySound(shootSound, shootVolume);
     }
 
-    void PlayShootSound()
+    void MeleeAttack()
     {
-        if (shootSound == null)
-            return;
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(meleePoint.position, meleeRange, enemyLayer);
+        Debug.Log($"Melee attack: Проверка попадания с радиусом {meleeRange}.");
 
-        GameObject tempGO = new GameObject("TempShootAudio");
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            CapsuleCollider2D enemyCollider = enemy.GetComponent<CapsuleCollider2D>();
+            if (enemyCollider != null)
+            {
+                Collider2D attackCollider = meleePoint.GetComponent<Collider2D>();
+
+                if (attackCollider != null && enemyCollider.IsTouching(attackCollider))
+                {
+                    EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+                    EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
+
+                    if (enemyStats != null)
+                        enemyStats.TakeDamage(meleeDamage);
+
+                    if (enemyDamage != null)
+                        StartCoroutine(enemyDamage.FlashDamageColor());
+
+                    Debug.Log($"Враг поразился: {enemy.gameObject.name}");
+                }
+            }
+        }
+
+        PlaySound(meleeSound, meleeVolume);
+    }
+
+    void PlaySound(AudioClip clip, float volume)
+    {
+        if (clip == null) return;
+
+        GameObject tempGO = new GameObject("TempAudio");
         tempGO.transform.position = transform.position;
 
         AudioSource tempSource = tempGO.AddComponent<AudioSource>();
-        tempSource.clip = shootSound;
-        tempSource.volume = shootVolume;
+        tempSource.clip = clip;
+        tempSource.volume = volume;
         tempSource.Play();
 
-        Destroy(tempGO, shootSound.length);
+        Destroy(tempGO, clip.length);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (meleePoint == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(meleePoint.position, meleeRange);
+    }
+
+    void UpdateShootIndicator()
+    {
+        // Удаляем текущий индикатор
+        if (currentIndicator != null)
+        {
+            Destroy(currentIndicator);
+        }
+
+        GameObject indicatorPrefab = shootTimer >= shootCooldown ? readyIndicatorPrefab : cooldownIndicatorPrefab;
+
+        if (indicatorPrefab != null && indicatorPoint != null)
+        {
+            currentIndicator = Instantiate(indicatorPrefab, indicatorPoint.position, Quaternion.identity, indicatorPoint);
+        }
     }
 }

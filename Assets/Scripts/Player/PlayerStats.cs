@@ -92,4 +92,14 @@ public class PlayerStats : MonoBehaviour
         if (ammoText != null)
             ammoText.text = "X" + currentAmmo.ToString();
     }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        UpdateHUD();
+    }
+
 }

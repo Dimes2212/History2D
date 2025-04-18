@@ -88,6 +88,9 @@ public class ShootingEnemy : MonoBehaviour
         if (projectilePrefab && firePoint)
         {
             animator.SetInteger("EnemyState", 2);
+            animator.SetInteger("State3", 2);
+
+
 
             // Определяем направление выстрела в зависимости от позиции игрока
             float horizontalDir = (player.position.x - transform.position.x) > 0 ? 1f : -1f;

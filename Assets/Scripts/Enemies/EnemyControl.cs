@@ -63,6 +63,8 @@ public class EnemyControl : MonoBehaviour
     {
         animator.SetInteger("EnemyState", 1);
         animator.SetInteger("EnemyState2", 1);
+        animator.SetInteger("State3", 1);
+            animator.SetInteger("State4", 1);
 
         }
 
@@ -124,6 +126,9 @@ public class EnemyControl : MonoBehaviour
     {
         animator.SetInteger("EnemyState", 0); // 0 - состояние покоя
         animator.SetInteger("EnemyState2", 0);
+        animator.SetInteger("State3", 0);
+            animator.SetInteger("State4", 0);
+
         }
     }
 

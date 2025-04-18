@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: 4ebb35d158e974a86a4093c216b5e5da
+guid: d8accc0870cc3ba46a1f20dca43eaac3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4581689024050021075
-    second: ForestPass_0
+      213: -3925099796872752999
+    second: Enemy2 + shooting_0
   - first:
-      213: 7359473676586635235
-    second: ForestPass_1
+      213: 2610580540736153782
+    second: Enemy2 + shooting_1
   - first:
-      213: 5611091541885016114
-    second: ForestPass_2
+      213: -2979961007295742190
+    second: Enemy2 + shooting_2
   - first:
-      213: -4862640544657296020
-    second: ForestPass_3
+      213: -1007498567198594128
+    second: Enemy2 + shooting_3
   - first:
-      213: 795748263734847201
-    second: ForestPass_4
+      213: 7353951791527507406
+    second: Enemy2 + shooting_4
   - first:
-      213: 1935450518727501253
-    second: ForestPass_5
+      213: -1901291128094690518
+    second: Enemy2 + shooting_5
   - first:
-      213: 491983896885357816
-    second: ForestPass_6
+      213: 5584915469864682839
+    second: Enemy2 + shooting_6
   - first:
-      213: -1322918368600792209
-    second: ForestPass_7
+      213: -668862590318864235
+    second: Enemy2 + shooting_7
   - first:
-      213: -4883302060050629010
-    second: ForestPass_8
+      213: 2126469982523030170
+    second: Enemy2 + shooting_8
   - first:
-      213: 6778806346152814060
-    second: ForestPass_9
+      213: 8811928075951836676
+    second: Enemy2 + shooting_9
   - first:
-      213: -938812937075259431
-    second: ForestPass_10
-  - first:
-      213: 5790238350444173842
-    second: ForestPass_11
+      213: -2661280511829199061
+    second: Enemy2 + shooting_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -107,7 +104,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -117,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -130,7 +127,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -211,265 +221,243 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ForestPass_0
+      name: Enemy2 + shooting_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 175
-        width: 24
-        height: 62
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d2cecd74ed659f30800000000000000
-      internalID: 4581689024050021075
+      spriteID: 9901173e78e3789c0800000000000000
+      internalID: -3925099796872752999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_1
+      name: Enemy2 + shooting_1
       rect:
         serializedVersion: 2
-        x: 85
-        y: 175
-        width: 22
-        height: 62
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3efc8c2115a122660800000000000000
-      internalID: 7359473676586635235
+      spriteID: 6b8202c9b25aa3420800000000000000
+      internalID: 2610580540736153782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_2
+      name: Enemy2 + shooting_2
       rect:
         serializedVersion: 2
-        x: 117
-        y: 175
-        width: 23
-        height: 62
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 238514c470a9edd40800000000000000
-      internalID: 5611091541885016114
+      spriteID: 21f3f9b904d05a6d0800000000000000
+      internalID: -2979961007295742190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_3
+      name: Enemy2 + shooting_3
       rect:
         serializedVersion: 2
-        x: 148
-        y: 175
-        width: 23
-        height: 64
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c653a41203e648cb0800000000000000
-      internalID: -4862640544657296020
+      spriteID: 0bba96e1465a402f0800000000000000
+      internalID: -1007498567198594128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_4
+      name: Enemy2 + shooting_4
       rect:
         serializedVersion: 2
-        x: 181
-        y: 175
-        width: 31
-        height: 62
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e6ac8e64d01b0b00800000000000000
-      internalID: 795748263734847201
+      spriteID: ec53855013c7e0660800000000000000
+      internalID: 7353951791527507406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_5
+      name: Enemy2 + shooting_5
       rect:
         serializedVersion: 2
-        x: 15
-        y: 143
-        width: 242
-        height: 25
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c529190ef91cda10800000000000000
-      internalID: 1935450518727501253
+      spriteID: a23705fdac14d95e0800000000000000
+      internalID: -1901291128094690518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_6
+      name: Enemy2 + shooting_6
       rect:
         serializedVersion: 2
-        x: 79
-        y: 111
-        width: 18
-        height: 23
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fc60116fb0e3d600800000000000000
-      internalID: 491983896885357816
+      spriteID: 7554ed9970b918d40800000000000000
+      internalID: 5584915469864682839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_7
+      name: Enemy2 + shooting_7
       rect:
         serializedVersion: 2
-        x: 111
-        y: 111
-        width: 34
-        height: 23
+        x: 256
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f63e5bcb0cc04ade0800000000000000
-      internalID: -1322918368600792209
+      spriteID: 5981f749409b7b6f0800000000000000
+      internalID: -668862590318864235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_8
+      name: Enemy2 + shooting_8
       rect:
         serializedVersion: 2
-        x: 159
-        y: 111
-        width: 18
-        height: 23
+        x: 288
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6ebfb336a60b3cb0800000000000000
-      internalID: -4883302060050629010
+      spriteID: a9af0ddbe2db28d10800000000000000
+      internalID: 2126469982523030170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_9
+      name: Enemy2 + shooting_9
       rect:
         serializedVersion: 2
-        x: 47
-        y: 89
-        width: 6
-        height: 8
+        x: 320
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce52a97c478231e50800000000000000
-      internalID: 6778806346152814060
+      spriteID: 40e8661c5e14a4a70800000000000000
+      internalID: 8811928075951836676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestPass_10
+      name: Enemy2 + shooting_10
       rect:
         serializedVersion: 2
-        x: 47
-        y: 15
-        width: 82
-        height: 66
+        x: 352
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d786179b9aa8f2f0800000000000000
-      internalID: -938812937075259431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ForestPass_11
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 47
-        width: 82
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21a911b0a1f0b5050800000000000000
-      internalID: 5790238350444173842
+      spriteID: b2730cc797b311bd0800000000000000
+      internalID: -2661280511829199061
       vertices: []
       indices: 
       edges: []
@@ -478,7 +466,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: feb254bd761460f4590f961afbf95bd4
     internalID: 0
     vertices: []
     indices: 
@@ -488,18 +476,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ForestPass_0: 4581689024050021075
-      ForestPass_1: 7359473676586635235
-      ForestPass_10: -938812937075259431
-      ForestPass_11: 5790238350444173842
-      ForestPass_2: 5611091541885016114
-      ForestPass_3: -4862640544657296020
-      ForestPass_4: 795748263734847201
-      ForestPass_5: 1935450518727501253
-      ForestPass_6: 491983896885357816
-      ForestPass_7: -1322918368600792209
-      ForestPass_8: -4883302060050629010
-      ForestPass_9: 6778806346152814060
+      Enemy2 + shooting_0: -3925099796872752999
+      Enemy2 + shooting_1: 2610580540736153782
+      Enemy2 + shooting_10: -2661280511829199061
+      Enemy2 + shooting_2: -2979961007295742190
+      Enemy2 + shooting_3: -1007498567198594128
+      Enemy2 + shooting_4: 7353951791527507406
+      Enemy2 + shooting_5: -1901291128094690518
+      Enemy2 + shooting_6: 5584915469864682839
+      Enemy2 + shooting_7: -668862590318864235
+      Enemy2 + shooting_8: 2126469982523030170
+      Enemy2 + shooting_9: 8811928075951836676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

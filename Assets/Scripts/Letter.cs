@@ -16,25 +16,44 @@ public class InteractiveHintAndImageWithChildren : MonoBehaviour
     [Header("Image Settings")]
     public Image displayImage;
     public bool hideOnExit = true;
-    public bool includeChildren = true; // Показывать дочерние объекты
+    public bool includeChildren = true;
 
     private bool isInTrigger = false;
     private bool isImageVisible = false;
 
     void Start()
     {
+        // Принудительно скрываем подсказку и изображение при старте
+        if (hintText != null)
+        {
+            hintText.gameObject.SetActive(false);
+        }
+
+        if (displayImage != null)
+        {
+            displayImage.gameObject.SetActive(false);
+            if (includeChildren)
+            {
+                foreach (Transform child in displayImage.transform)
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        // Применяем кастомный шрифт, если он задан
         ApplyCustomFont();
-        SetImageVisibility(false); // Скрываем изображение при старте
     }
 
     void Update()
     {
-        UpdateHintVisibility();
-        
         if (isInTrigger && Input.GetKeyDown(interactKey))
         {
             ToggleImageVisibility();
         }
+
+        // Обновляем видимость подсказки
+        UpdateHintVisibility();
     }
 
     private void ApplyCustomFont()
@@ -66,7 +85,6 @@ public class InteractiveHintAndImageWithChildren : MonoBehaviour
         {
             displayImage.gameObject.SetActive(visible);
             
-            // Показываем/скрываем дочерние объекты
             if (includeChildren)
             {
                 foreach (Transform child in displayImage.transform)

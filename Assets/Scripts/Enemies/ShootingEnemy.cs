@@ -89,6 +89,8 @@ public class ShootingEnemy : MonoBehaviour
         {
             animator.SetInteger("EnemyState", 2);
             animator.SetInteger("State3", 2);
+            animator.SetInteger("State6", 2);
+
 
 
 

@@ -65,10 +65,14 @@ public class EnemyControl : MonoBehaviour
         animator.SetInteger("EnemyState2", 1);
         animator.SetInteger("State3", 1);
             animator.SetInteger("State4", 1);
+            animator.SetInteger("State5", 1);
+            animator.SetInteger("State6", 1);
+
+
 
         }
 
-    Vector2 targetPosition = patrolPoints[currentTargetIndex].position;
+        Vector2 targetPosition = patrolPoints[currentTargetIndex].position;
     Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
     rb.MovePosition(newPosition);
     }
@@ -128,6 +132,10 @@ public class EnemyControl : MonoBehaviour
         animator.SetInteger("EnemyState2", 0);
         animator.SetInteger("State3", 0);
             animator.SetInteger("State4", 0);
+            animator.SetInteger("State5", 0);
+            animator.SetInteger("State6", 0);
+
+
 
         }
     }

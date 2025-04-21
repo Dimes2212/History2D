@@ -9,6 +9,12 @@ public class ApplePickup : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Только если вошёл игрок
         {
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.Heal(1);
+            }
+
             PlayEatSound();
             Destroy(gameObject);       // Удаляем яблоко
         }

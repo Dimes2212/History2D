@@ -70,6 +70,8 @@ public class MeleeEnemy : MonoBehaviour
 
         animator?.SetInteger("EnemyState2", 1);
         animator?.SetInteger("State4", 1);// Бег
+        animator?.SetInteger("State5", 1);// Бег
+
     }
 
     void StopMovement()
@@ -92,6 +94,8 @@ public class MeleeEnemy : MonoBehaviour
         if (Time.time < lastAttackTime + attackCooldown || isAttacking) return;
         animator?.SetInteger("EnemyState2", 2); // бьет
         animator?.SetInteger("State4", 2);
+        animator?.SetInteger("State5", 2);
+
         isAttacking = true;
         lastAttackTime = Time.time;
 

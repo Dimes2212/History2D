@@ -16216,8 +16216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf73aa480dd5741aba96f5eceebe6642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMusic: {fileID: 8300000, guid: ec9827694995d4d81962248b7bee2beb, type: 3}
-  musicVolume: 0.15
+  levelMusic: {fileID: 8300000, guid: d2939ffa4bea64aba8cd8c907b8a1379, type: 3}
+  musicVolume: 0.619
 --- !u!82 &867943349
 AudioSource:
   m_ObjectHideFlags: 0

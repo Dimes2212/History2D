@@ -9904,7 +9904,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &677809778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20085,7 +20085,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &739793077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21913,7 +21913,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &770439733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23560,7 +23560,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &882754827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27496,7 +27496,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &1188402148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27826,7 +27826,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &1211744079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28715,8 +28715,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  shootSound: {fileID: 0}
-  meleeSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 1f51fd93de43c473e96207f8512b6be7, type: 3}
+  meleeSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
   shootVolume: 1
   meleeVolume: 1
   readyIndicatorPrefab: {fileID: 3759050558694556163, guid: fe560031f92924021bca611c14675de5, type: 3}
@@ -40284,6 +40284,135 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65e0fe937d59114486ee5c246c6641a, type: 3}
+--- !u!1 &1570151131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1570151133}
+  - component: {fileID: 1570151132}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1570151132
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570151131}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e61f6dc69eed046fdb42214a07ccae3b, type: 3}
+  m_Resource: {fileID: 8300000, guid: e61f6dc69eed046fdb42214a07ccae3b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1570151133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570151131}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.17, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1572403013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40461,7 +40590,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &1572403018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44292,12 +44421,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 0e6b5a100f6584b84af4d2a31eb447a6, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0e6b5a100f6584b84af4d2a31eb447a6, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -45553,7 +45682,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1922093163}
 --- !u!114 &2084966995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46957,6 +47086,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1570151133}
   - {fileID: 1922093164}
   - {fileID: 1987017099}
   - {fileID: 558665276}

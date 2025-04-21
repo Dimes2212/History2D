@@ -8736,7 +8736,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 259177434}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 0.5
   deathDelay: 0.5
@@ -9551,7 +9551,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &323376671
 Animator:
   serializedVersion: 7
@@ -9677,7 +9677,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 323376677}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5
@@ -10178,7 +10178,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &415383184
 Animator:
   serializedVersion: 7
@@ -10304,7 +10304,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 415383190}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5
@@ -11087,7 +11087,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &559865119
 Animator:
   serializedVersion: 7
@@ -11213,7 +11213,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 559865125}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5
@@ -12230,7 +12230,7 @@ Transform:
   m_GameObject: {fileID: 753197000}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.177, y: 0.108, z: -0.046783365}
+  m_LocalPosition: {x: -0.167, y: 0.068, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13023,7 +13023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf73aa480dd5741aba96f5eceebe6642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMusic: {fileID: 8300000, guid: ec9827694995d4d81962248b7bee2beb, type: 3}
+  levelMusic: {fileID: 8300000, guid: 0a630c2ab9ae84d00b18cd532ef8c864, type: 3}
   musicVolume: 0.15
 --- !u!82 &867943349
 AudioSource:
@@ -13038,13 +13038,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 175
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -14952,7 +14952,7 @@ Transform:
   m_GameObject: {fileID: 1574095167}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.177, y: 0.168, z: -0.046783365}
+  m_LocalPosition: {x: -0.177, y: 0.116, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15177,7 +15177,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &1590010943
 Animator:
   serializedVersion: 7
@@ -15303,7 +15303,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1590010949}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5
@@ -15543,7 +15543,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1617715647}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 0.5
   deathDelay: 0.5
@@ -16603,7 +16603,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1800336466}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 0.5
   deathDelay: 0.5
@@ -17098,7 +17098,7 @@ Transform:
   m_GameObject: {fileID: 1824143152}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.177, y: 0.108, z: -0.046783365}
+  m_LocalPosition: {x: -0.177, y: 0.083, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17596,7 +17596,7 @@ Transform:
   m_GameObject: {fileID: 1837284363}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.177, y: -0.021, z: -0.046783365}
+  m_LocalPosition: {x: -0.177, y: 0.086, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18025,7 +18025,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1980542294}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 0.5
   deathDelay: 0.5
@@ -19268,7 +19268,7 @@ Transform:
   m_GameObject: {fileID: 2090608346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.177, y: 0.108, z: -0.046783365}
+  m_LocalPosition: {x: -0.177, y: 0.086, z: -0.046783365}
   m_LocalScale: {x: 0.1807396, y: 0.17584784, z: 0.4549591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19555,7 +19555,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &2131940176
 Animator:
   serializedVersion: 7
@@ -19681,7 +19681,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2131940182}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5
@@ -20030,7 +20030,7 @@ MonoBehaviour:
   chaseSpeed: 2
   attackAnimationTrigger: Attack
   attackSound: {fileID: 8300000, guid: de842e640ef6045c2bc900f92f5315d9, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
 --- !u!95 &2138763653
 Animator:
   serializedVersion: 7
@@ -20156,7 +20156,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2138763659}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   colorDuration: 0.2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 867943349}
   deathSound: {fileID: 8300000, guid: 995b9b117e27b43fc9e23c38fd93a059, type: 3}
   deathSoundVolume: 1
   deathDelay: 0.5

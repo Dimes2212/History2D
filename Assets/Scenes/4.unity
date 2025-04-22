@@ -10799,17 +10799,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.27980804, y: 0.62933946}
+  m_Offset: {x: -0.0678401, y: 0.62933946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.65217394, y: 0.9130435}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10.013184, y: 2.258679}
+  m_Size: {x: 4.639949, y: 2.258679}
   m_EdgeRadius: 0
 --- !u!212 &215131017
 SpriteRenderer:
@@ -10855,9 +10855,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7736554985918915066, guid: d865cd3967349f6409d85c6f3d48bb60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -10875,8 +10875,8 @@ Transform:
   m_GameObject: {fileID: 215131014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.82, y: -4.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 124.85, y: -4.248, z: 0}
+  m_LocalScale: {x: 1.0919, y: 1.0919, z: 1.0919}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10896,7 +10896,7 @@ MonoBehaviour:
   playerTag: Player
   interactKey: 101
   hintText: {fileID: 840634329}
-  hintMessage: Press E
+  hintMessage: '[E]'
   customFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   displayImages:
   - {fileID: 78376411}
@@ -15980,7 +15980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &840634328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16020,7 +16020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press E
+  m_text: '[E]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4b2e467d7fcb44168e9cc2637b39b0f, type: 2}
   m_sharedMaterial: {fileID: -5225453855129293088, guid: e4b2e467d7fcb44168e9cc2637b39b0f, type: 2}
@@ -17988,7 +17988,7 @@ Transform:
   m_GameObject: {fileID: 1287666816}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 83.38, y: -3.88, z: 0}
+  m_LocalPosition: {x: 116.77, y: -3.88, z: 0}
   m_LocalScale: {x: 5.5328226, y: 5.7299423, z: 2.198}
   m_ConstrainProportionsScale: 0
   m_Children:

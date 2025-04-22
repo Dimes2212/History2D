@@ -451,7 +451,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18599,7 +18599,7 @@ MonoBehaviour:
   playerTag: Player
   interactKey: 101
   hintText: {fileID: 34741235}
-  hintMessage: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 [E]"
+  hintMessage: '[E]'
   customFont: {fileID: 11400000, guid: e4b2e467d7fcb44168e9cc2637b39b0f, type: 2}
   displayImage: {fileID: 704253327}
   hideOnExit: 1

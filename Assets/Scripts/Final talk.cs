@@ -20,7 +20,6 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
 
     private bool isInTrigger = false;
     private int currentImageIndex = -1; // -1 означает, что ни одно изображение не показано
-    private bool hintDisabled = false; // Флаг, что подсказка отключена навсегда
 
     void Start()
     {
@@ -54,14 +53,13 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
     {
         if (isInTrigger && Input.GetKeyDown(interactKey))
         {
-            if (!hintDisabled && hintText != null)
-            {
-                // Удаляем подсказку при первом нажатии
-                Destroy(hintText.gameObject);
-                hintDisabled = true;
-            }
-
             CycleThroughImages();
+
+            // Скрываем подсказку при первом нажатии
+            if (hintText != null && hintText.gameObject.activeSelf)
+            {
+                hintText.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -114,10 +112,10 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && !hintDisabled)
+        if (other.CompareTag(playerTag))
         {
             isInTrigger = true;
-            if (hintText != null)
+            if (hintText != null && currentImageIndex == -1)
             {
                 hintText.gameObject.SetActive(true);
             }
@@ -130,7 +128,13 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
         {
             isInTrigger = false;
 
-            // Скрываем все при выходе из триггера
+            // Скрываем подсказку при выходе
+            if (hintText != null)
+            {
+                hintText.gameObject.SetActive(false);
+            }
+
+            // Скрываем все изображения при выходе из триггера
             if (hideOnExit)
             {
                 foreach (var image in displayImages)

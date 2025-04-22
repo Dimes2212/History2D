@@ -415,9 +415,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 414456085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 124.3}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -200, y: -64}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008195381
@@ -440,7 +440,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"\u041D\u0430\u0447\u0430\u043B\u043E\""
+  m_text: "\"\u041D\u0430\u0447\u0430\u043B\u043E\"\n\u0410\u0432\u0433\u0443\u0441\u0442
+    1812 \u0433\u043E\u0434\u0430 - \u0421\u043C\u043E\u043B\u0435\u043D\u0441\u043A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -505,7 +506,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -436.17615, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -827,7 +828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -95}
+  m_AnchoredPosition: {x: 49, y: -95}
   m_SizeDelta: {x: 679.9255, y: 211.0799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615242815
@@ -850,16 +851,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "5 \u0430\u0432\u0433\u0443\u0441\u0442\u0430 1812 \u0433\u043E\u0434\u0430
-    \u2014 \u0421\u043C\u043E\u043B\u0435\u043D\u0441\u043A.\r\n\u041F\u0440\u0430\u043F\u043E\u0440\u0449\u0438\u043A
-    \u041C\u0438\u0445\u0430\u0438\u043B \u041E\u0440\u043B\u043E\u0432, \u0432\u044B\u0432\u0435\u0434\u0448\u0438\u0439
-    \u0441\u043E\u043B\u0434\u0430\u0442 \u0438\u0437 \u0431\u043E\u044F, \u043D\u0430\u043F\u0440\u0430\u0432\u0438\u043B\u0441\u044F
-    \u043A \u0440\u043E\u0434\u043D\u043E\u043C\u0443 \u0434\u043E\u043C\u0443. 
-    \u0423\u043B\u0438\u0446\u044B \u0437\u0434\u0435\u0441\u044C \u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C
-    \u043D\u0435\u0442\u0440\u043E\u043D\u0443\u0442\u044B\u043C\u0438, \u043B\u0438\u0448\u044C
-    \u0432\u0434\u0430\u043B\u0438 \u0441\u043B\u044B\u0448\u0430\u043B\u0441\u044F
-    \u0433\u0443\u043B \u043E\u0442\u0441\u0442\u0443\u043F\u0430\u044E\u0449\u0435\u0439
-    \u0430\u0440\u043C\u0438\u0438."
+  m_text: "\u0415\u0444\u0440\u0435\u0439\u0442\u043E\u0440 \u0413\u0430\u0432\u0440\u0438\u043B\u0430
+    \u041C\u043E\u043A\u0435\u0435\u0432, \u043E\u0442\u0441\u0442\u0443\u043F\u0438\u0432\u0448\u0438\u0439
+    \u0432\u043C\u0435\u0441\u0442\u0435 \u0441 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439
+    \u0430\u0440\u043C\u0438\u0435\u0439, \u043E\u0431\u0435\u0441\u043F\u043E\u043A\u043E\u0438\u043B\u0441\u044F
+    \u043E \u0441\u0443\u0434\u044C\u0431\u0435 \u0441\u0432\u043E\u0435\u0439 \u0441\u0435\u043C\u044C\u0438
+    \u0438, \u043D\u0430\u0440\u0443\u0448\u0438\u0432 \u043F\u0440\u0438\u043A\u0430\u0437
+    \u043E\u0444\u0438\u0446\u0435\u0440\u0430, \u0431\u0440\u043E\u0441\u0438\u043B\u0441\u044F
+    \u0432\u044B\u0437\u0432\u043E\u043B\u044F\u0442\u044C \u0431\u043B\u0438\u0437\u043A\u0438\u0445. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -886,14 +885,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32.67
+  m_fontSizeBase: 32.67
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -924,7 +923,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 78.7796, w: 40.35089}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

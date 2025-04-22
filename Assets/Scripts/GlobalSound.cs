@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalSound : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class GlobalSound : MonoBehaviour
 
     void Awake()
     {
-        // Singleton — сохраняем один экземпляр
+        // Singleton
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Не уничтожать при переходе между сценами
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneUnloaded += OnSceneUnloaded; // Подписка на событие
         }
         else
         {
@@ -23,7 +25,6 @@ public class GlobalSound : MonoBehaviour
             return;
         }
 
-        // Создаем аудиоисточник
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.clip = levelMusic;
         musicSource.volume = musicVolume;
@@ -33,6 +34,17 @@ public class GlobalSound : MonoBehaviour
         musicSource.Play();
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneUnloaded -= OnSceneUnloaded; // Отписка от события
+    }
+
+    // Когда сцена выгружается
+    private void OnSceneUnloaded(Scene current)
+    {
+        StopMusic();
+    }
+
     public void SetVolume(float volume)
     {
         musicSource.volume = volume;
@@ -40,12 +52,23 @@ public class GlobalSound : MonoBehaviour
 
     public void StopMusic()
     {
-        musicSource.Stop();
+        if (musicSource != null)
+            musicSource.Stop();
     }
 
     public void PlayMusic()
     {
-        if (!musicSource.isPlaying)
+        if (musicSource != null && !musicSource.isPlaying)
             musicSource.Play();
     }
+    public void ChangeMusic(AudioClip newClip, float volume = 0.5f)
+    {
+        if (musicSource.clip == newClip) return; // Уже играет нужный трек
+
+        musicSource.Stop();
+        musicSource.clip = newClip;
+        musicSource.volume = volume;
+        musicSource.Play();
+    }
+
 }

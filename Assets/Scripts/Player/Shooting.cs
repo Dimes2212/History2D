@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
         {
             if (stats != null && stats.UseAmmo())
             {
-                animator.SetInteger("State", 3);
+                animator?.SetInteger("State", 3); 
                 Shoot();
                 shootTimer = 0f;
             }

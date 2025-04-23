@@ -14,22 +14,22 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
     public TMP_FontAsset customFont;
 
     [Header("Image Settings")]
-    public Image[] displayImages; // Массив изображений для последовательного показа
+    public Image[] displayImages; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public bool hideOnExit = true;
     public bool includeChildren = true;
 
     private bool isInTrigger = false;
-    private int currentImageIndex = -1; // -1 означает, что ни одно изображение не показано
+    private int currentImageIndex = -1; // -1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     void Start()
     {
-        // Принудительно скрываем подсказку и все изображения при старте
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (hintText != null)
         {
             hintText.gameObject.SetActive(false);
         }
 
-        // Скрываем все изображения и их дочерние объекты
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         foreach (var image in displayImages)
         {
             if (image != null)
@@ -45,7 +45,7 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
             }
         }
 
-        // Применяем кастомный шрифт, если он задан
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         ApplyCustomFont();
     }
 
@@ -55,7 +55,7 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
         {
             CycleThroughImages();
 
-            // Скрываем подсказку при первом нажатии
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (hintText != null && hintText.gameObject.activeSelf)
             {
                 hintText.gameObject.SetActive(false);
@@ -73,23 +73,23 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
 
     private void CycleThroughImages()
     {
-        // Скрываем текущее изображение
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (currentImageIndex >= 0 && currentImageIndex < displayImages.Length)
         {
             SetImageVisibility(displayImages[currentImageIndex], false);
         }
 
-        // Переходим к следующему изображению или завершаем показ
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         currentImageIndex++;
 
         if (currentImageIndex < displayImages.Length)
         {
-            // Показываем следующее изображение
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             SetImageVisibility(displayImages[currentImageIndex], true);
         }
         else
         {
-            // Все изображения показаны
+            // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             currentImageIndex = -1;
         }
     }
@@ -128,13 +128,13 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
         {
             isInTrigger = false;
 
-            // Скрываем подсказку при выходе
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if (hintText != null)
             {
                 hintText.gameObject.SetActive(false);
             }
 
-            // Скрываем все изображения при выходе из триггера
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (hideOnExit)
             {
                 foreach (var image in displayImages)
@@ -145,4 +145,4 @@ public class InteractiveHintAndImageWithChildren2 : MonoBehaviour
             }
         }
     }
-}
+} 

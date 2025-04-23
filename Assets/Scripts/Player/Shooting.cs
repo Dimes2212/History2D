@@ -63,6 +63,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && meleeTimer >= meleeCooldown)
         {
             animator.SetTrigger("Melee");
+            animator.SetInteger("State", 4);
             MeleeAttack();
             meleeTimer = 0f;
         }

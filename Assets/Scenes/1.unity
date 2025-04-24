@@ -451,7 +451,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -597,7 +597,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 56791987}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!114 &56791990
 MonoBehaviour:
@@ -1347,7 +1347,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 89903389}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!61 &89903388
 BoxCollider2D:
@@ -12908,7 +12908,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12933,6 +12933,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1075344602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &356310740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_Name
+      value: PF Village Props - Torch (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 116.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
 --- !u!1 &361697636
 GameObject:
   m_ObjectHideFlags: 0
@@ -14972,7 +15029,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15846,7 +15903,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -15929,6 +15986,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
   m_PrefabInstance: {fileID: 1202024322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &644487620
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1808798900}
+    m_Modifications:
+    - target: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_Name
+      value: PF Village Props - Torch (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+--- !u!4 &644487621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  m_PrefabInstance: {fileID: 644487620}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &649711201 stripped
 Transform:
@@ -16069,7 +16188,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -16396,7 +16515,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 698373018}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!114 &698373021
 MonoBehaviour:
@@ -16776,7 +16895,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18676,7 +18795,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19784,7 +19903,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 1196224081}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!114 &1196224084
 MonoBehaviour:
@@ -19944,6 +20063,72 @@ Transform:
   - {fileID: 448811559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1198335734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1808798900}
+    m_Modifications:
+    - target: {fileID: 8183758440019976680, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_Name
+      value: PF Village Props - Torch (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+--- !u!4 &1198335735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  m_PrefabInstance: {fileID: 1198335734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1202024322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20168,6 +20353,72 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
   m_PrefabInstance: {fileID: 1243787138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1252349579
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1808798900}
+    m_Modifications:
+    - target: {fileID: 8183758440019976680, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_Name
+      value: PF Village Props - Torch (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+--- !u!4 &1252349580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  m_PrefabInstance: {fileID: 1252349579}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264452068
 PrefabInstance:
@@ -20968,8 +21219,8 @@ MonoBehaviour:
     m_Bits: 256
   shootSound: {fileID: 8300000, guid: 1f51fd93de43c473e96207f8512b6be7, type: 3}
   meleeSound: {fileID: 8300000, guid: a62ff7f641cb74facb65cefb552f926e, type: 3}
-  shootVolume: 0.2
-  meleeVolume: 1
+  shootVolume: 0.1
+  meleeVolume: 0.5
   readyIndicatorPrefab: {fileID: 3759050558694556163, guid: fe560031f92924021bca611c14675de5, type: 3}
   cooldownIndicatorPrefab: {fileID: 1222047059496566625, guid: 200c8b659c0c145cc8b788f46fc584f7, type: 3}
   indicatorPoint: {fileID: 2143265841}
@@ -20998,8 +21249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7159a7644954f34af1e05401e35ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 5
+  maxHealth: 10
+  currentHealth: 10
   maxAmmo: 4
   currentAmmo: 2
   healthText: {fileID: 246357332}
@@ -21577,7 +21828,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -21722,6 +21973,68 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1775790501429231186, guid: 75e84fbdb66ab5647a06b786c6662307, type: 3}
   m_PrefabInstance: {fileID: 912564233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1431549892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1808798900}
+    m_Modifications:
+    - target: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_Name
+      value: PF Village Props - Torch (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+--- !u!4 &1431549893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8183758440019976683, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  m_PrefabInstance: {fileID: 1431549892}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1451720225
 PrefabInstance:
@@ -22458,7 +22771,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 1622169651}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!114 &1622169654
 MonoBehaviour:
@@ -22945,7 +23258,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -23606,6 +23919,10 @@ Transform:
   - {fileID: 634091828}
   - {fileID: 1717425633}
   - {fileID: 642803657}
+  - {fileID: 644487621}
+  - {fileID: 1431549893}
+  - {fileID: 1198335735}
+  - {fileID: 1252349580}
   - {fileID: 505481779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24616,7 +24933,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -25189,7 +25506,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -26468,7 +26785,7 @@ MonoBehaviour:
     m_Bits: 8
   audioSource: {fileID: 2117774306}
   shootSound: {fileID: 8300000, guid: 79a10cb0aeb6147b5b9b13fd0d777b8d, type: 3}
-  shootSoundVolume: 0.3
+  shootSoundVolume: 0.1
   projectileSpeed: 5
 --- !u!114 &2117774309
 MonoBehaviour:
@@ -26852,7 +27169,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2880978268257231342, guid: a4561b0517074d14b84d770ea48de2d1, type: 3}
-  m_Color: {r: 0.9037736, g: 1, b: 0.9576987, a: 1}
+  m_Color: {r: 0.9019608, g: 1, b: 0.95686275, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -26958,3 +27275,4 @@ SceneRoots:
   - {fileID: 217534377}
   - {fileID: 536951564}
   - {fileID: 1849994004}
+  - {fileID: 356310740}

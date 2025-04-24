@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GG : MonoBehaviour
 {
@@ -61,6 +62,11 @@ public class GG : MonoBehaviour
 
         // Звук шагов
         HandleFootstepSound(moveX);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Загружаем сцену с индексом 0 (первая в Build Settings)
+            SceneManager.LoadScene(0);
+        }
     }
 
     void HandleAnimations(float moveX)

@@ -11,5 +11,9 @@ public class ExitPlay : MonoBehaviour
     {
         Application.Quit();
     }
+    public void ExitMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }

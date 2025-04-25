@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
@@ -14563,8 +14563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   maxAmmo: 10
   currentAmmo: 0
   ammoBoxPrefab: {fileID: 0}
@@ -15467,8 +15467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   maxAmmo: 10
   currentAmmo: 0
   ammoBoxPrefab: {fileID: 0}
@@ -16346,7 +16346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
@@ -19734,7 +19734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
@@ -20817,8 +20817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   maxAmmo: 10
   currentAmmo: 0
   ammoBoxPrefab: {fileID: 0}
@@ -21249,10 +21249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7159a7644954f34af1e05401e35ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
-  maxAmmo: 4
-  currentAmmo: 2
+  maxHealth: 15
+  currentHealth: 15
+  maxAmmo: 10
+  currentAmmo: 10
   healthText: {fileID: 246357332}
   ammoText: {fileID: 751162118}
   respawnPoint: {fileID: 189134718}
@@ -22602,7 +22602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0
@@ -24414,8 +24414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   maxAmmo: 10
   currentAmmo: 0
   ammoBoxPrefab: {fileID: 0}
@@ -26069,8 +26069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   maxAmmo: 10
   currentAmmo: 0
   ammoBoxPrefab: {fileID: 0}
@@ -26616,7 +26616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd71a70489bb4253b19824fd7d2b8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   currentHealth: 0
   maxAmmo: 100
   currentAmmo: 0

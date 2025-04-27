@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class ExitPlay : MonoBehaviour
 {
+    private static string previousSceneName; // Статическая переменная для хранения имени предыдущей сцены
+
     public void Play(int index)
     {
         SceneManager.LoadScene(index);
@@ -15,5 +17,7 @@ public class ExitPlay : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+     
+ 
 
 }

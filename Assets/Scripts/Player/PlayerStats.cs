@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class PlayerStats : MonoBehaviour
     void Die()
     {
         isDead = true;
+        
         Debug.Log("Игрок погиб");
         Respawn();
     }

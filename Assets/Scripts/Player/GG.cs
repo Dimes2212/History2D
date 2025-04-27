@@ -64,8 +64,7 @@ public class GG : MonoBehaviour
         HandleFootstepSound(moveX);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Загружаем сцену с индексом 0 (первая в Build Settings)
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(12);
         }
     }
 

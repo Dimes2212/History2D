@@ -21,23 +21,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Death in 1.unity
     guid: d44e5639f564c354db4aae57bbc56ce8
   - enabled: 1
-    path: Assets/Scenes/second 1.unity
-    guid: 647557b74091fa44caa528ab6d884916
-  - enabled: 1
-    path: Assets/Scenes/2.unity
-    guid: 1f01ee30b3e5ff0458735a87908f9da2
-  - enabled: 1
     path: Assets/Scenes/third.unity
     guid: c40e03c89db723e42a9fe6b42a0649b1
   - enabled: 1
     path: Assets/Scenes/3(1).unity
     guid: 36c9a44960b173f40acb46830fd10928
   - enabled: 1
+    path: Assets/Scenes/second 1.unity
+    guid: 647557b74091fa44caa528ab6d884916
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: 1f01ee30b3e5ff0458735a87908f9da2
+  - enabled: 1
     path: Assets/Scenes/Fourth.unity
     guid: 205d5ec6f131fa74893c038e5e4c6ab0
   - enabled: 1
     path: Assets/Scenes/4.unity
     guid: 23dde6d4017dbe84bb74a7fa0936cccc
+  - enabled: 1
+    path: Assets/Scenes/Fourth 1.unity
+    guid: 106b9c4f09136544d9f5e416631ca95b
   - enabled: 1
     path: Assets/Scenes/Play again.unity
     guid: 8a5bade15730edb42b3509ea0c5d5516
